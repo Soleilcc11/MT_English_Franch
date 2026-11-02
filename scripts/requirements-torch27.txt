@@ -1,0 +1,4 @@
+# Deployment profile for the user's RTX 4090 / Python 3.11 / Torch 2.7.0 image.
+# setup_4090_torch27.sh installs the explicit official cu128 build first.
+-r requirements-common.txt
+torch==2.7.0

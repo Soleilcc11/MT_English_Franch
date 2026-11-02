@@ -1,0 +1,76 @@
+{
+  "project": "MT_English_Franch",
+  "model": "EnFr-Transformer-Small",
+  "recorded_at": "2026-11-02T06:54:53.551376+00:00",
+  "scope": "Local macOS CPU verification; not Linux CUDA validation or formal translation results",
+  "environment": {
+    "python": "3.11.11",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "packages": {
+      "torch": "2.7.0",
+      "tensorflow": "2.15.0",
+      "tensorflow-macos": "2.15.0",
+      "numpy": "1.26.4",
+      "sentencepiece": "0.2.2",
+      "sacrebleu": "2.6.0"
+    },
+    "framework": "torch",
+    "cuda_available": false,
+    "cuda_runtime": null,
+    "gpu_ready": false
+  },
+  "parameter_count": 9429824,
+  "source_code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+  "tests": {
+    "passed": 26,
+    "failed": 0,
+    "includes": [
+      "attention masks and causality",
+      "token-weighted gradient accumulation",
+      "KV cache and SDPA equivalence",
+      "mixed-length batch generation",
+      "weight sharing and save/load",
+      "PyTorch and TensorFlow interrupted training resume"
+    ]
+  },
+  "cross_framework_parity": {
+    "passed": true,
+    "checks": 399,
+    "scope": "CPU FP32, full 4+4-layer baseline, outputs/loss/gradients/one SGD update",
+    "forward_atol": 1e-05,
+    "forward_rtol": 0.0001,
+    "gradient_atol": 1e-05,
+    "gradient_rtol": 0.001
+  },
+  "earlier_torch21_small_sample_overfit": {
+    "samples": 32,
+    "token_accuracy": 0.9974293112754822,
+    "optimizer_updates": 50,
+    "architecture": "1+1 layers, d_model=64; diagnostic only"
+  },
+  "data": {
+    "dataset": "IWSLT/iwslt2017",
+    "configuration": "iwslt2017-en-fr",
+    "revision": "c18a4f81a47ae6fa079fe9d32db288ddde38451d",
+    "raw_archive_sha256": "aa5b3b622e9389dfebc9b99ad22d7b21cdccb49be4c67e3e0a9f22573a1b500d",
+    "prepared_counts": {
+      "train": 230423,
+      "validation": 890,
+      "test": 8597
+    },
+    "validation": "dev2010",
+    "test": "pooled tst2010-2015",
+    "vocab_size": 8000
+  },
+  "formal_gpu_training": {
+    "completed_runs": 0,
+    "planned_runs": 10,
+    "test_bleu": null,
+    "test_chrf": null,
+    "gpu_speedup": null
+  },
+  "reproduce": {
+    "tests": "OMP_NUM_THREADS=1 PYTHONPATH=scripts python -m unittest discover -s scripts/tests -v (generate smoke-data first)",
+    "parity": "python scripts/run.py check-parity --torch-python <torch-python> --tf-python <tensorflow-python>"
+  }
+}
