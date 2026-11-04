@@ -27,12 +27,18 @@ class ModelConfig:
     dropout: float = 0.1
     norm_eps: float = 1e-5
     encoder_positions: bool = True
+    encoder_relative_positions: bool = False
+    relative_max_distance: int = 16
 
     def __post_init__(self):
         if self.d_model % self.heads or self.d_model % 2:
             raise ValueError("d_model must be even and divisible by heads")
         if min(self.encoder_layers, self.decoder_layers) < 1:
             raise ValueError("At least one encoder and decoder layer is required")
+        if self.relative_max_distance < 1 or not isinstance(self.relative_max_distance, int):
+            raise ValueError("relative_max_distance must be a positive integer")
+        if self.encoder_relative_positions and self.encoder_positions:
+            raise ValueError("A4 replaces encoder absolute positions with relative positions")
 
 
 def read_json(path):
@@ -84,15 +90,23 @@ def source_manifest():
     return {"files": hashes, "code_id": fingerprint(hashes)}
 
 
-def load_config(path=None, variant="A0", seed=42):
+def load_config(path=None, variant="A0", seed=42, rdrop_alpha=None):
     c = read_json(path or ROOT / "scripts/configs/base.json")
     c["variant"], c["seed"] = variant, int(seed)
     if variant == "A1":
         c["model"]["heads"] = 1
     elif variant == "A2":
         c["model"]["encoder_positions"] = False
+    elif variant == "A4":
+        c["model"].update(encoder_positions=False, encoder_relative_positions=True, relative_max_distance=16)
+    elif variant == "A5":
+        c["training"]["rdrop_alpha"] = float(rdrop_alpha if rdrop_alpha is not None else c["training"].get("rdrop_alpha", 1.0))
+        if not math.isfinite(c["training"]["rdrop_alpha"]) or c["training"]["rdrop_alpha"] <= 0:
+            raise ValueError("A5 requires a finite positive rdrop_alpha")
     elif variant not in ("A0", "A3"):
         raise ValueError(f"Unknown variant: {variant}")
+    if rdrop_alpha is not None and variant != "A5":
+        raise ValueError("--rdrop-alpha is only valid for A5")
     ModelConfig(**c["model"])
     if c["training"]["effective_batch"] % c["training"]["micro_batch"]:
         raise ValueError("effective_batch must be divisible by micro_batch")
@@ -135,6 +149,14 @@ def canonical_weights(cfg: ModelConfig, seed=42):
             for j in range(2 if side == "encoder" else 3):
                 norm(f"{p}.norm{j + 1}")
         norm(side + "_norm")
+    # Append new draws only AFTER all baseline weights. Matching seeds retain
+    # bit-identical shared parameters for A0/A4/A5.
+    if cfg.encoder_relative_positions:
+        dk = cfg.d_model // cfg.heads
+        for i in range(cfg.encoder_layers):
+            for kind in ("relative_k", "relative_v"):
+                w[f"encoder.{i}.self_attn.{kind}"] = rng.normal(
+                    0, dk ** -0.5, (2 * cfg.relative_max_distance + 1, dk)).astype("float32")
     return w
 
 

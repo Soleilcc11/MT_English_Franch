@@ -32,7 +32,8 @@ def parser():
     q.add_argument("--output", type=Path, default=prepared)
     q = sub.add_parser("train"); cfg(q); data(q)
     q.add_argument("--framework", choices=["torch", "tensorflow"], default="torch")
-    q.add_argument("--variant", choices=["A0", "A1", "A2", "A3"], default="A0")
+    q.add_argument("--variant", choices=["A0", "A1", "A2", "A3", "A4", "A5"], default="A0")
+    q.add_argument("--rdrop-alpha", type=float, help="A5 only; mean CE + alpha * symmetric KL")
     q.add_argument("--seed", type=int, default=42)
     q.add_argument("--device", default="cuda")
     q.add_argument("--run", type=Path); q.add_argument("--resume", type=Path)
@@ -93,12 +94,24 @@ def parser():
     q.add_argument("--device", default="cuda")
     q.add_argument("--dry-run", action="store_true")
     q.add_argument("--finalize", action="store_true", help="After all runs: freeze, test, bootstrap, benchmark, diagnostics and report")
+    q = sub.add_parser("run-extensions"); cfg(q); data(q)
+    q.add_argument("--baseline-runs", type=Path, default=ROOT / "output/host4090-torch27/runs")
+    q.add_argument("--baseline-freeze", type=Path, default=ROOT / "output/host4090-torch27/freeze.json")
+    q.add_argument("--output", type=Path, default=ROOT / "output/host4090-torch27-extensions")
+    q.add_argument("--torch-python", default=sys.executable)
+    q.add_argument("--device", default="cuda")
+    q.add_argument("--dry-run", action="store_true")
+    q.add_argument("--finalize", action="store_true", help="After 8 new runs: freeze, evaluate A0/A4/A5, bootstrap and report")
+    q.add_argument("--smoke", action="store_true", help="Synthetic fixture data only")
     q = sub.add_parser("doctor")
     q.add_argument("--framework", choices=["torch", "tensorflow"], default="torch")
     q.add_argument("--require-gpu", action="store_true")
     q.add_argument("--output", type=Path)
     q = sub.add_parser("profile"); cfg(q); data(q)
     q.add_argument("--framework", choices=["torch", "tensorflow"], default="torch")
+    q.add_argument("--variant", choices=["A0", "A3", "A4", "A5"])
+    q.add_argument("--rdrop-alpha", type=float)
+    q.add_argument("--seed", type=int, default=42)
     q.add_argument("--device", default="cuda")
     q.add_argument("--output", type=Path, required=True)
     q = sub.add_parser("smoke-data")
@@ -119,9 +132,9 @@ def main():
     elif args.command == "train":
         from enfr.training import train
         from enfr.reporting import run_name
-        c = load_config(args.config, args.variant, args.seed)
+        c = load_config(args.config, args.variant, args.seed, args.rdrop_alpha)
         if (args.variant == "A3") != (args.framework == "tensorflow"):
-            raise ValueError("A3 is the TensorFlow baseline; A0/A1/A2 use PyTorch")
+            raise ValueError("A3 is the TensorFlow baseline; A0/A1/A2/A4/A5 use PyTorch")
         run = args.run or ROOT / "output/runs" / run_name(args.variant, args.seed, args.framework)
         out = {"run": str(train(c, args.prepared, run, args.framework, args.device, args.resume, args.max_updates))}
     elif args.command in ("evaluate", "translate"):
@@ -167,6 +180,10 @@ def main():
         from enfr.decode_comparison import compare_decode
         out = compare_decode(args.checkpoint, args.prepared, args.freeze, args.output,
                              args.device, args.precision, args.dry_run, args.smoke)
+    elif args.command == "run-extensions":
+        from enfr.extensions import run_extensions
+        out = run_extensions(args.baseline_runs, args.baseline_freeze, args.prepared, args.output,
+                             args.config, args.device, args.torch_python, args.dry_run, args.finalize, args.smoke)
     elif args.command == "_parity-export":
         from enfr.parity import export_tensorflow, export_torch
         c = ModelConfig(**load_config(args.config)["model"])
@@ -278,7 +295,10 @@ def main():
             write_json(args.output, out)
     elif args.command == "profile":
         from enfr.runtime import profile_training
-        out = profile_training(load_config(args.config, "A3" if args.framework == "tensorflow" else "A0"),
+        variant = args.variant or ("A3" if args.framework == "tensorflow" else "A0")
+        if (variant == "A3") != (args.framework == "tensorflow"):
+            raise ValueError("A3 requires TensorFlow; A0/A4/A5 require PyTorch")
+        out = profile_training(load_config(args.config, variant, args.seed, args.rdrop_alpha),
                                args.prepared, args.framework, args.device, args.output)
     else:
         raise ValueError(args.command)

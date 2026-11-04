@@ -43,6 +43,9 @@ class TorchTrainer:
         import torch
         from .torch_model import Transformer, make_optimizer
         self.torch = torch
+        self.rdrop_alpha = float(config["training"].get("rdrop_alpha", 0.0))
+        if not math.isfinite(self.rdrop_alpha) or self.rdrop_alpha < 0:
+            raise ValueError("rdrop_alpha must be finite and nonnegative")
         if config["training"]["precision"] == "bf16":
             if not device.startswith("cuda") or not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
                 raise RuntimeError("Formal BF16 training requires a CUDA GPU with BF16 support. Use smoke.json for CPU tests.")
@@ -59,20 +62,29 @@ class TorchTrainer:
             collate_fn=identity_rows, num_workers=0, generator=self.torch.Generator().manual_seed(0))
 
     def update(self, rows, lr):
-        from .torch_model import loss_sums
+        from .torch_model import loss_sums, rdrop_loss_sums
         from .evaluation import torch_context
         torch = self.torch
         self.model.train()
         self.optimizer.zero_grad(set_to_none=True)
         denominator = sum(len(row["tgt_ids"]) - 1 for row in rows)
         loss_total = nll_total = 0.0
+        ce_total = kl_total = 0.0
         for group in self.optimizer.param_groups:
             group["lr"] = lr
         micro = self.config["training"]["micro_batch"]
         for start in range(0, len(rows), micro):
             src, target, labels = [torch.from_numpy(x).to(self.device) for x in collate(rows[start:start + micro])]
             with torch_context(self.model, self.config["training"]["precision"]):
-                loss, nll, _ = loss_sums(self.model(src, target), labels, self.config["training"]["label_smoothing"])
+                logits = self.model(src, target)
+                if self.rdrop_alpha:
+                    # Do not reseed: the two passes must sample independent masks.
+                    loss, nll, _, ce, kl = rdrop_loss_sums(logits, self.model(src, target), labels,
+                        self.config["training"]["label_smoothing"], self.rdrop_alpha)
+                    ce_total += float(ce.detach())
+                    kl_total += float(kl.detach())
+                else:
+                    loss, nll, _ = loss_sums(logits, labels, self.config["training"]["label_smoothing"])
                 normalized = loss / denominator
             if not bool(torch.isfinite(normalized)):
                 raise FloatingPointError("Non-finite loss; checkpoint and investigate before continuing")
@@ -81,6 +93,8 @@ class TorchTrainer:
             nll_total += float(nll.detach())
         norm = torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.config["training"]["clip_norm"], error_if_nonfinite=True)
         self.optimizer.step()
+        self.last_metrics = ({"ce": ce_total / denominator, "symmetric_kl": kl_total / denominator,
+                              "rdrop_alpha": self.rdrop_alpha} if self.rdrop_alpha else {})
         return loss_total, nll_total, denominator, float(norm)
 
     def save(self, folder):
@@ -103,6 +117,8 @@ class TorchTrainer:
 
 class TensorFlowTrainer:
     def __init__(self, config, device):
+        if config["model"].get("encoder_relative_positions") or config["training"].get("rdrop_alpha", 0):
+            raise ValueError("A4 relative attention and A5 R-Drop training are PyTorch-only")
         import tensorflow as tf
         from .tf_model import Transformer, loss_sums
         self.tf, self.config = tf, config
@@ -256,6 +272,10 @@ def train(config, prepared, run, framework="torch", device="cpu", resume=None, m
                 start = time.perf_counter()
                 lr = learning_rate(state["step"] + 1, total_steps, tc)
                 loss, nll, count, grad_norm = trainer.update(batch, lr)
+                extra = getattr(trainer, "last_metrics", {})
+                if extra:
+                    state["epoch_ce"] = state.get("epoch_ce", 0.0) + extra["ce"] * count
+                    state["epoch_kl"] = state.get("epoch_kl", 0.0) + extra["symmetric_kl"] * count
                 elapsed = time.perf_counter() - start
                 state.update(epoch=epoch, next_batch=batch_index + 1, step=state["step"] + 1,
                     epoch_loss=state["epoch_loss"] + loss, epoch_nll=state["epoch_nll"] + nll,
@@ -265,6 +285,7 @@ def train(config, prepared, run, framework="torch", device="cpu", resume=None, m
                         "loss": loss / count, "nll": nll / count, "grad_norm": grad_norm,
                         "seconds": elapsed, "target_tokens_per_second": count / elapsed,
                         "peak_memory_bytes": trainer.memory()}
+                    log.update(extra)
                     append_log(run / "log.jsonl", log)
                     print(json.dumps(log), flush=True)
                 if state["step"] % tc["checkpoint_every"] == 0:
@@ -280,7 +301,12 @@ def train(config, prepared, run, framework="torch", device="cpu", resume=None, m
             append_log(run / "log.jsonl", {"event": "epoch", "epoch": epoch + 1, "step": state["step"],
                 "train_loss": state["epoch_loss"] / state["epoch_tokens"],
                 "train_nll": state["epoch_nll"] / state["epoch_tokens"], "validation": metrics,
-                "validation_seconds": time.perf_counter() - val_start, "best": is_best})
+                "validation_seconds": time.perf_counter() - val_start, "best": is_best,
+                **({"train_ce": state["epoch_ce"] / state["epoch_tokens"],
+                    "train_symmetric_kl": state["epoch_kl"] / state["epoch_tokens"],
+                    "rdrop_alpha": tc["rdrop_alpha"]} if "epoch_ce" in state else {})})
+            if "epoch_ce" in state:
+                state.update(epoch_ce=0.0, epoch_kl=0.0)
             state.update(epoch=epoch + 1, next_batch=0, epoch_loss=0.0, epoch_nll=0.0, epoch_tokens=0)
             save(is_best)
         write_json(run / "status.json", {"status": "complete", "training_complete": True,

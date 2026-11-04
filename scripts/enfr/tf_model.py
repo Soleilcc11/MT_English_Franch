@@ -101,6 +101,8 @@ class DecoderLayer(tf.keras.layers.Layer):
 
 class Transformer(tf.keras.Model):
     def __init__(self, config: ModelConfig, seed=42):
+        if config.encoder_relative_positions:
+            raise ValueError("A4 relative attention is implemented only in PyTorch")
         super().__init__(dtype="float32")
         self.config = config
         self.rng = tf.random.Generator.from_seed(seed)

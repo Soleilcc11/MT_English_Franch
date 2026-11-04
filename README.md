@@ -4,6 +4,16 @@
 
 从随机初始化实现 Encoder–Decoder Transformer，以 PyTorch 为主实现、TensorFlow 为独立复现。覆盖数据审计、共享 BPE、30 epoch 训练、注意力消融、跨框架输出和梯度对齐、KV Cache、SDPA 对照、冻结后的测试评分、bootstrap 和错误分析。
 
+## A4 / A5 扩展（2026-11-04）
+
+新增 PyTorch A4（Encoder-only Shaw 相对位置 K/V，距离截断 16，替代 Encoder 绝对位置）与 A5（两次独立 dropout 前向、平均 label-smoothed CE + α × 对称 KL）。A4 为 9,446,720 参数，A0/A5 为 9,429,824；相同 seed 的公共初始权重保持一致。训练日志分别记录 CE、KL、总损失和无平滑 NLL，验证/测试 PPL 不含正则项。
+
+`run-extensions --finalize` 在独立目录新增 8 次训练：A4 三种子；A5 在 seed 42 搜索 α=1、3、5，再对选中 α 补跑 seed 43、44。只读复用旧 A0 checkpoint，按统一 greedy 协议评估 A0/A4/A5 三种子，输出冻结清单、年份/长度桶、配对 bootstrap、错误分析样本和汇总报告。原 A0–A3 与 beam search 目录不覆盖。
+
+更新、GPU 开销测量、后台训练、断点恢复、评估和翻译命令见 [A4 / A5 服务器完整操作指南](scripts/EXTENSIONS_A4_A5.md)。本轮仅完成实现与本地验证；A4/A5 正式 BLEU、耗时和显存需要在服务器训练后测量。不要在旧训练或 beam 队列仍运行时更新源码；旧冻结实验仍要求其原源码版本。
+
+开发机 CPU 验证通过全部 61 项测试（新增 16 项 A4/A5 模型、训练及队列测试），包括真实子进程执行的 8 次短程合成数据训练；原 beam、mask、保存加载、梯度累积与恢复回归通过。独立 PyTorch 2.7.0 / TensorFlow 2.15.0 环境的 399 项基线数值对齐通过。验证日志位于本地 `output/a45-verification/`，合成数据指标不作为正式实验结论。
+
 ## A0 解码扩展（2026-11-04）
 
 新增 PyTorch beam search、长度归一化与 `compare-decode` 一键对照。直接使用已完成的 A0 seed 42 最佳 checkpoint，在验证集选择 beam 参数后冻结，并完成测试、bootstrap 和自然生成测速；无需重新训练。旧 A0–A3 结果只读，新结果保存至 `output/host4090-torch27-decode/A0-seed42/`。

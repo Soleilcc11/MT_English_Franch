@@ -57,6 +57,9 @@ def check_frozen(checkpoint, data_id, manifest_path, protocol=None):
     if not manifest_path:
         raise ValueError("Test evaluation requires --freeze after all planned training and model selection")
     manifest = read_json(manifest_path)
+    if manifest.get("schema") == "enfr.extension-freeze.v1":
+        from .extensions import check_extension_frozen
+        return check_extension_frozen(checkpoint, data_id, manifest, protocol)
     if manifest.get("schema") == "enfr.decode-freeze.v1":
         from .decode_comparison import check_decode_frozen
         return check_decode_frozen(checkpoint, data_id, manifest, protocol)

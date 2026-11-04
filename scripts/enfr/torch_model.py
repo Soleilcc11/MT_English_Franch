@@ -24,13 +24,19 @@ def positions(length, dim, device, offset=0):
 
 
 class Attention(nn.Module):
-    def __init__(self, c):
+    def __init__(self, c, relative=False):
         super().__init__()
         self.heads, self.dk, self.dropout = c.heads, c.d_model // c.heads, c.dropout
         self.q, self.k, self.v, self.out = [nn.Linear(c.d_model, c.d_model) for _ in range(4)]
         self.backend = "manual"
         self.capture = False
         self.last = {}
+        self.relative = relative
+        self.max_distance = c.relative_max_distance
+        if relative:
+            # Shaw K/V tables: shared across heads, distinct for each layer.
+            self.relative_k = nn.Parameter(torch.empty(2 * self.max_distance + 1, self.dk))
+            self.relative_v = nn.Parameter(torch.empty(2 * self.max_distance + 1, self.dk))
 
     def split(self, x):
         b, n, _ = x.shape
@@ -41,17 +47,28 @@ class Attention(nn.Module):
 
     def attend(self, x, k, v, allowed):
         q = self.split(self.q(x))
+        if self.relative and self.backend != "manual":
+            raise ValueError("Shaw relative K/V attention requires the manual backend")
         if self.backend == "sdpa" and not self.capture:
             out = F.scaled_dot_product_attention(q, k, v, attn_mask=allowed,
                 dropout_p=self.dropout if self.training else 0.0, is_causal=False)
         else:
             scores = (q @ k.transpose(-2, -1)).float() / math.sqrt(self.dk)
+            if self.relative:
+                if q.shape[2] != k.shape[2]:
+                    raise ValueError("Relative attention is restricted to full encoder self-attention")
+                pos = torch.arange(q.shape[2], device=q.device)
+                distance = (pos[None, :] - pos[:, None]).clamp(-self.max_distance, self.max_distance) + self.max_distance
+                rk, rv = self.relative_k[distance], self.relative_v[distance]
+                scores = scores + torch.einsum("bhid,ijd->bhij", q, rk.to(q.dtype)).float() / math.sqrt(self.dk)
             scores = scores.masked_fill(~allowed, float("-inf"))
             probs = torch.softmax(scores, dim=-1)
             if self.capture:
                 self.last = {"scores": scores.detach(), "probs": probs.detach()}
             probs = F.dropout(probs, self.dropout, self.training)
             out = probs.to(v.dtype) @ v
+            if self.relative:
+                out = out + torch.einsum("bhij,ijd->bhid", probs.to(v.dtype), rv.to(v.dtype))
         out = out.transpose(1, 2).contiguous().reshape(x.shape[0], x.shape[1], -1)
         out = self.out(out)
         if self.capture:
@@ -66,7 +83,7 @@ class Attention(nn.Module):
 class EncoderLayer(nn.Module):
     def __init__(self, c):
         super().__init__()
-        self.self_attn = Attention(c)
+        self.self_attn = Attention(c, relative=c.encoder_relative_positions)
         self.norm1 = FP32LayerNorm(c.d_model, eps=c.norm_eps)
         self.norm2 = FP32LayerNorm(c.d_model, eps=c.norm_eps)
         self.ff1, self.ff2 = nn.Linear(c.d_model, c.d_ff), nn.Linear(c.d_ff, c.d_model)
@@ -142,6 +159,8 @@ class Transformer(nn.Module):
     def set_backend(self, backend):
         if backend not in ("manual", "sdpa"):
             raise ValueError(backend)
+        if backend == "sdpa" and self.config.encoder_relative_positions:
+            raise ValueError("A4 Shaw relative K/V attention is not supported by the SDPA benchmark")
         for m in self.modules():
             if isinstance(m, Attention):
                 m.backend = backend
@@ -319,6 +338,21 @@ def loss_sums(logits, labels, smoothing=0.1):
     uniform = -log_probs[..., 1:].mean(-1)
     losses = (1 - smoothing) * nll + smoothing * uniform
     return (losses * valid).sum(), (nll * valid).sum(), valid.sum()
+
+
+def rdrop_loss_sums(first, second, labels, smoothing=0.1, alpha=1.0):
+    """Token SUMS: mean CE + alpha * mean bidirectional KL; both paths backprop.
+
+    KL covers the full predictive vocabulary, including PAD/BOS, but excludes
+    PAD target positions. This is separate from non-PAD label smoothing.
+    """
+    a, na, count = loss_sums(first, labels, smoothing)
+    b, nb, _ = loss_sums(second, labels, smoothing)
+    logp, logq = F.log_softmax(first.float(), -1), F.log_softmax(second.float(), -1)
+    divergence = 0.5 * ((logp.exp() - logq.exp()) * (logp - logq)).sum(-1)
+    kl = divergence.masked_select(labels != PAD).sum()
+    ce, nll = (a + b) * 0.5, (na + nb) * 0.5
+    return ce + alpha * kl, nll, count, ce, kl
 
 
 def make_optimizer(model, config):
