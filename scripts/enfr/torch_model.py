@@ -233,6 +233,84 @@ class Transformer(nn.Module):
                 break
         return tokens[:, 1:], ~finished
 
+    @staticmethod
+    def reorder_cache(cache, indices):
+        """Gather beam parents, including duplicated parents, on the batch axis."""
+        if cache is None:
+            return None
+        return {"position": cache["position"],
+                "valid": cache["valid"].index_select(0, indices),
+                "layers": [{"k": layer["k"].index_select(0, indices),
+                            "v": layer["v"].index_select(0, indices),
+                            "cross": tuple(x.index_select(0, indices) for x in layer["cross"])}
+                           for layer in cache["layers"]]}
+
+    @torch.no_grad()
+    def beam_search(self, src_ids, max_new_tokens=256, beam_size=4,
+                    length_penalty=0.6, use_cache=True):
+        """Length-normalized beam search with absorbing finished hypotheses.
+
+        Scores use the original vocabulary probabilities (no renormalization
+        after masking PAD/BOS). Length includes EOS but excludes BOS and PAD.
+        Equal scores prefer the earlier parent, then the smaller token ID.
+        """
+        if self.training:
+            raise RuntimeError("Call model.eval() before decoding")
+        if not isinstance(beam_size, int) or not 1 <= beam_size <= self.config.vocab_size - 2:
+            raise ValueError("beam_size must be an integer in [1, vocab_size - 2]")
+        if not math.isfinite(length_penalty) or length_penalty < 0:
+            raise ValueError("length_penalty must be finite and nonnegative")
+        if not isinstance(max_new_tokens, int) or max_new_tokens < 1:
+            raise ValueError("max_new_tokens must be a positive integer")
+        if beam_size == 1:
+            return self.greedy(src_ids, max_new_tokens, use_cache)
+
+        batch, vocab = src_ids.shape[0], self.config.vocab_size
+        memory = self.encode(src_ids)
+        tokens = torch.full((batch, 1), BOS, device=src_ids.device, dtype=torch.long)
+        scores = torch.zeros(batch, 1, device=src_ids.device, dtype=torch.float32)
+        lengths = torch.zeros(batch, 1, device=src_ids.device, dtype=torch.long)
+        finished = torch.zeros(batch, 1, device=src_ids.device, dtype=torch.bool)
+        cache, width = None, 1
+        for _ in range(max_new_tokens):
+            # The first BOS step runs at batch B, so cross K/V is projected once
+            # per source before the beam expansion to B*K.
+            if use_cache:
+                logits, cache = self.decode_step(tokens[:, -1], memory, cache)
+            else:
+                logits = self.decode(tokens, memory)[:, -1]
+            log_probs = F.log_softmax(logits.float(), dim=-1).reshape(batch, width, vocab)
+            log_probs[:, :, [PAD, BOS]] = -float("inf")
+            log_probs = log_probs.masked_fill(finished[:, :, None], -float("inf"))
+            log_probs[:, :, PAD] = torch.where(finished, 0.0, -float("inf"))
+            candidate_scores = scores[:, :, None] + log_probs
+            candidate_lengths = lengths + (~finished).long()
+            ranks = candidate_scores / ((5.0 + candidate_lengths[:, :, None]) / 6.0).pow(length_penalty)
+            # Stable sort makes tie handling explicit, including across batches.
+            chosen = torch.argsort(ranks.flatten(1), dim=-1, descending=True, stable=True)[:, :beam_size]
+            parents, nxt = chosen // vocab, chosen % vocab
+            indices = (torch.arange(batch, device=src_ids.device)[:, None] * width + parents).flatten()
+            scores = candidate_scores.flatten(1).gather(1, chosen)
+            if not bool(torch.isfinite(scores[:, 0]).all()):
+                raise FloatingPointError("Beam search found no finite best hypothesis")
+            lengths = candidate_lengths.gather(1, parents)
+            finished = finished.gather(1, parents) | (nxt == EOS) | ~torch.isfinite(scores)
+            tokens = torch.cat((tokens.index_select(0, indices), nxt.reshape(-1, 1)), dim=1)
+            memory = tuple(x.index_select(0, indices) for x in memory)
+            cache = self.reorder_cache(cache, indices)
+            width = beam_size
+            if bool(finished.all()):
+                break
+
+        ranks = scores / ((5.0 + lengths) / 6.0).pow(length_penalty)
+        best = ranks.argmax(-1)
+        indices = torch.arange(batch, device=src_ids.device) * width + best
+        result = tokens.index_select(0, indices)[:, 1:]
+        # Other beams may outlive the winning hypothesis; omit trailing all-PAD
+        # columns while retaining right padding between examples in the batch.
+        result = result[:, :int(lengths.gather(1, best[:, None]).max())]
+        return result, ~finished.gather(1, best[:, None]).squeeze(1)
+
 
 def loss_sums(logits, labels, smoothing=0.1):
     log_probs = F.log_softmax(logits.float(), -1)

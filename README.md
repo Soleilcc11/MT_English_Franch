@@ -4,6 +4,14 @@
 
 从随机初始化实现 Encoder–Decoder Transformer，以 PyTorch 为主实现、TensorFlow 为独立复现。覆盖数据审计、共享 BPE、30 epoch 训练、注意力消融、跨框架输出和梯度对齐、KV Cache、SDPA 对照、冻结后的测试评分、bootstrap 和错误分析。
 
+## A0 解码扩展（2026-11-04）
+
+新增 PyTorch beam search、长度归一化与 `compare-decode` 一键对照。直接使用已完成的 A0 seed 42 最佳 checkpoint，在验证集选择 beam 参数后冻结，并完成测试、bootstrap 和自然生成测速；无需重新训练。旧 A0–A3 结果只读，新结果保存至 `output/host4090-torch27-decode/A0-seed42/`。
+
+完整服务器更新、验证、后台启动、恢复和翻译命令见 [Greedy / Beam Search 操作指南](scripts/BEAM_SEARCH.md)。GPU 上的 BLEU、延迟和显存由服务器实际运行后生成。
+
+本次开发机 CPU 验证通过 45 项单元/流程测试（含 19 项新增解码与评估流程测试），并通过 399 项 PyTorch 2.7.0 / TensorFlow 2.15.0 前向、梯度和 SGD 更新对齐。服务器 CUDA/BF16 的质量与速度以实际评估为准。
+
 ## 当前状态
 
 代码和真实数据准备已在开发机完成。GitHub 仓库包含代码、配置、安装脚本和验证摘要；原始语料、预处理数据、虚拟环境及 checkpoint 不纳入 Git，需要按下文生成。本次开发机器为 Apple Silicon Mac，**没有 CUDA GPU**。开发机 `output/smoke/` 中的训练、翻译和性能结果均属于合成数据上的 CPU 冒烟测试，不能写成 IWSLT 正式成绩或 RTX 4090 性能。

@@ -53,10 +53,15 @@ def freeze(runs, prepared, output):
     return manifest
 
 
-def check_frozen(checkpoint, data_id, manifest_path):
+def check_frozen(checkpoint, data_id, manifest_path, protocol=None):
     if not manifest_path:
         raise ValueError("Test evaluation requires --freeze after all planned training and model selection")
     manifest = read_json(manifest_path)
+    if manifest.get("schema") == "enfr.decode-freeze.v1":
+        from .decode_comparison import check_decode_frozen
+        return check_decode_frozen(checkpoint, data_id, manifest, protocol)
+    if protocol is not None and (protocol["decode"] != "greedy" or protocol["cache"]):
+        raise ValueError("The original freeze covers uncached greedy only; use compare-decode to freeze new decoding settings")
     cp = resolve_checkpoint(checkpoint)
     if manifest["data_id"] != data_id or sha256(cp / "weights.npz") not in {r["weights_sha256"] for r in manifest["runs"]}:
         raise ValueError("Checkpoint or dataset was not included in the frozen experiment")

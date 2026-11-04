@@ -21,6 +21,11 @@ def parser():
         q.add_argument("--config", type=Path, default=ROOT / "scripts/configs/base.json")
     def data(q):
         q.add_argument("--prepared", type=Path, default=prepared)
+    def decoding(q, cache):
+        q.add_argument("--decode", choices=["greedy", "beam"], default="greedy")
+        q.add_argument("--beam-size", type=int, default=4)
+        q.add_argument("--length-penalty", type=float, default=0.6)
+        q.add_argument("--cache", action=argparse.BooleanOptionalAction, default=cache)
 
     q = sub.add_parser("prepare"); cfg(q)
     q.add_argument("--archive", type=Path); q.add_argument("--revision")
@@ -32,7 +37,7 @@ def parser():
     q.add_argument("--device", default="cuda")
     q.add_argument("--run", type=Path); q.add_argument("--resume", type=Path)
     q.add_argument("--max-updates", type=int, help="Stop at this global update count; never labels a partial run complete")
-    q = sub.add_parser("evaluate"); data(q)
+    q = sub.add_parser("evaluate"); data(q); decoding(q, False)
     q.add_argument("--checkpoint", type=Path, required=True)
     q.add_argument("--split", choices=["validation", "test"], default="validation")
     q.add_argument("--device", default="cpu")
@@ -40,11 +45,18 @@ def parser():
     q.add_argument("--precision", choices=["fp32", "bf16"], default="fp32")
     q.add_argument("--output", type=Path, required=True); q.add_argument("--freeze", type=Path)
     q.add_argument("--smoke", action="store_true", help="Non-formal evaluation for synthetic fixtures only")
-    q = sub.add_parser("translate"); data(q)
+    q = sub.add_parser("translate"); data(q); decoding(q, True)
     q.add_argument("--checkpoint", type=Path, required=True); q.add_argument("--text", required=True)
     q.add_argument("--device", default="cpu"); q.add_argument("--framework", choices=["torch", "tensorflow"])
     q.add_argument("--precision", choices=["fp32", "bf16"], default="fp32")
-    q.add_argument("--no-cache", action="store_true")
+    q = sub.add_parser("compare-decode"); data(q)
+    q.add_argument("--checkpoint", type=Path, required=True)
+    q.add_argument("--freeze", type=Path, required=True, help="Original training-suite freeze, read-only")
+    q.add_argument("--output", type=Path, default=ROOT / "output/host4090-torch27-decode/A0-seed42")
+    q.add_argument("--device", default="cuda")
+    q.add_argument("--precision", choices=["fp32", "bf16"], default="bf16")
+    q.add_argument("--dry-run", action="store_true")
+    q.add_argument("--smoke", action="store_true", help="Synthetic fixtures only; never formal benchmark results")
     q = sub.add_parser("check-parity"); cfg(q)
     q.add_argument("--seed", type=int, default=42)
     q.add_argument("--output", type=Path, default=ROOT / "output/parity")
@@ -115,25 +127,46 @@ def main():
     elif args.command in ("evaluate", "translate"):
         import sentencepiece as spm
         from enfr.data import verify_prepared
-        from enfr.evaluation import evaluate_model, load_model, translate
+        from enfr.evaluation import evaluate_model, load_model, translate, decode_settings, generation_protocol, resolve_checkpoint
         audit = verify_prepared(args.prepared)
         model, meta, framework = load_model(args.checkpoint, args.framework, args.device, args.precision)
-        if meta["data_id"] != audit["data_id"]:
+        if meta["data_id"] != audit["data_id"] or meta["tokenizer_sha256"] != audit["tokenizer_sha256"]:
             raise ValueError("Checkpoint was trained on a different prepared dataset")
+        settings = decode_settings(args.decode, args.beam_size, args.length_penalty)
+        if framework == "tensorflow" and args.decode == "beam":
+            raise ValueError("Beam search is implemented only for PyTorch")
         sp = spm.SentencePieceProcessor(model_file=str(args.prepared / "tokenizer.model"))
         if args.command == "translate":
-            out = translate(model, framework, sp, args.text, meta["config"]["evaluation"]["max_new_tokens"], args.precision, not args.no_cache)
+            out = translate(model, framework, sp, args.text, meta["config"]["evaluation"]["max_new_tokens"],
+                            args.precision, args.cache, **settings)
         else:
+            protocol = generation_protocol(**settings, **meta["config"]["evaluation"], precision=args.precision,
+                                           use_cache=bool(args.cache and framework == "torch"))
+            if framework == "torch" and (args.decode == "beam" or args.cache):
+                from enfr.decode_comparison import protect_output
+                cp = resolve_checkpoint(args.checkpoint).resolve()
+                run = cp.parent.parent if cp.parent.name == "checkpoints" else cp.parent
+                protected = [run, args.prepared]
+                if run.parent.name == "runs":
+                    protected.append(run.parent.parent)
+                protect_output(args.output, protected)
+                if (args.output / "metrics.json").exists():
+                    raise FileExistsError("Preserve completed evaluation; use another --output")
             if args.split == "test":
                 from enfr.reporting import check_frozen
                 if args.smoke and audit["provenance"].get("synthetic_fixture") is True:
                     pass
                 else:
-                    check_frozen(args.checkpoint, audit["data_id"], args.freeze)
+                    check_frozen(args.checkpoint, audit["data_id"], args.freeze, protocol)
             out, _ = evaluate_model(model, framework, read_jsonl(args.prepared / f"{args.split}.jsonl"), sp,
-                **meta["config"]["evaluation"], precision=args.precision, use_cache=False, output=args.output)
-            out.update(checkpoint=str(args.checkpoint), data_id=audit["data_id"], formal=not args.smoke)
+                **meta["config"]["evaluation"], precision=args.precision, use_cache=args.cache, output=args.output, **settings)
+            out.update(checkpoint=str(args.checkpoint), data_id=audit["data_id"],
+                       formal=not args.smoke and not audit["provenance"].get("synthetic_fixture", False))
             write_json(args.output / "metrics.json", out)
+    elif args.command == "compare-decode":
+        from enfr.decode_comparison import compare_decode
+        out = compare_decode(args.checkpoint, args.prepared, args.freeze, args.output,
+                             args.device, args.precision, args.dry_run, args.smoke)
     elif args.command == "_parity-export":
         from enfr.parity import export_tensorflow, export_torch
         c = ModelConfig(**load_config(args.config)["model"])

@@ -45,8 +45,42 @@ def torch_context(model, precision):
     return torch.autocast("cuda", dtype=torch.bfloat16) if precision == "bf16" and device.type == "cuda" else contextlib.nullcontext()
 
 
+def decode_settings(decode="greedy", beam_size=4, length_penalty=0.6):
+    if decode not in ("greedy", "beam"):
+        raise ValueError("decode must be greedy or beam")
+    if not isinstance(beam_size, int) or beam_size < 1:
+        raise ValueError("beam_size must be a positive integer")
+    if not math.isfinite(length_penalty) or length_penalty < 0:
+        raise ValueError("length_penalty must be finite and nonnegative")
+    return {"decode": decode, "beam_size": beam_size if decode == "beam" else 1,
+            "length_penalty": float(length_penalty) if decode == "beam" else 0.0}
+
+
+def generation_protocol(decode="greedy", beam_size=4, length_penalty=0.6,
+                        precision="fp32", use_cache=False, batch_size=16, max_new_tokens=256):
+    return {**decode_settings(decode, beam_size, length_penalty), "precision": precision,
+            "cache": bool(use_cache), "batch_size": batch_size, "max_new_tokens": max_new_tokens}
+
+
+def generate(model, framework, src, max_new_tokens=256, use_cache=True,
+             decode="greedy", beam_size=4, length_penalty=0.6):
+    settings = decode_settings(decode, beam_size, length_penalty)
+    if framework == "tensorflow":
+        if decode != "greedy":
+            raise ValueError("Beam search is implemented only for PyTorch")
+        return model.greedy(src, max_new_tokens)
+    if decode == "beam":
+        return model.beam_search(src, max_new_tokens, settings["beam_size"],
+                                 settings["length_penalty"], use_cache)
+    return model.greedy(src, max_new_tokens, use_cache=use_cache)
+
+
 def evaluate_model(model, framework, rows, sp, batch_size=16, max_new_tokens=256,
-                   precision="fp32", use_cache=False, output=None):
+                   precision="fp32", use_cache=False, output=None,
+                   decode="greedy", beam_size=4, length_penalty=0.6, progress=None):
+    settings = decode_settings(decode, beam_size, length_penalty)
+    if framework == "tensorflow" and decode != "greedy":
+        raise ValueError("Beam search is implemented only for PyTorch")
     predictions, nll_sum, count = [None] * len(rows), 0.0, 0
     if framework == "torch":
         import torch
@@ -56,6 +90,7 @@ def evaluate_model(model, framework, rows, sp, batch_size=16, max_new_tokens=256
     else:
         import tensorflow as tf
         from .tf_model import loss_sums
+    processed = 0
     for ids in evaluation_batches(rows, batch_size):
         subset = [rows[i] for i in ids]
         src, target, labels = collate(subset)
@@ -63,7 +98,7 @@ def evaluate_model(model, framework, rows, sp, batch_size=16, max_new_tokens=256
             with torch.no_grad(), torch_context(model, precision):
                 src_t, tgt_t, lab_t = [torch.from_numpy(x).to(device) for x in (src, target, labels)]
                 _, nll, valid = loss_sums(model(src_t, tgt_t), lab_t, 0.0)
-                generated, capped = model.greedy(src_t, max_new_tokens, use_cache=use_cache)
+                generated, capped = generate(model, framework, src_t, max_new_tokens, use_cache, **settings)
             generated, capped = generated.cpu().numpy(), capped.cpu().numpy()
             nll_sum, count = nll_sum + float(nll), count + int(valid)
         else:
@@ -78,11 +113,14 @@ def evaluate_model(model, framework, rows, sp, batch_size=16, max_new_tokens=256
                 "hypothesis": token_text(sp, generated[j]), "truncated": bool(capped[j]),
                 "year": row.get("year"), "doc_id": row.get("doc_id"),
                 "src_tokens": len(row["src_ids"]) - 2, "length_bucket": length_bucket(len(row["src_ids"]) - 2)}
+        processed += len(ids)
+        if progress:
+            progress(processed, len(rows))
     metrics = scores(predictions)
     nll = nll_sum / max(1, count)
     metrics.update(nll=nll, ppl=math.exp(nll) if nll < 700 else None, target_tokens=count,
                    framework=framework, precision=precision, max_new_tokens=max_new_tokens,
-                   decode="greedy", cache=bool(use_cache and framework == "torch"))
+                   **settings, batch_size=batch_size, cache=bool(use_cache and framework == "torch"))
     metrics["by_year"] = {str(y): scores([r for r in predictions if r["year"] == y])
                            for y in sorted({r["year"] for r in predictions if r["year"] is not None})}
     metrics["by_length"] = {b: scores([r for r in predictions if r["length_bucket"] == b])
@@ -123,7 +161,11 @@ def load_model(checkpoint, framework=None, device="cpu", precision="fp32"):
     return model, metadata, framework
 
 
-def translate(model, framework, sp, text, max_new_tokens=256, precision="fp32", use_cache=True):
+def translate(model, framework, sp, text, max_new_tokens=256, precision="fp32", use_cache=True,
+              decode="greedy", beam_size=4, length_penalty=0.6):
+    settings = decode_settings(decode, beam_size, length_penalty)
+    if framework == "tensorflow" and decode != "greedy":
+        raise ValueError("Beam search is implemented only for PyTorch")
     text = normalize(text)
     if not text:
         raise ValueError("English input must not be empty")
@@ -131,9 +173,11 @@ def translate(model, framework, sp, text, max_new_tokens=256, precision="fp32", 
     if framework == "torch":
         import torch
         with torch.no_grad(), torch_context(model, precision):
-            generated, capped = model.greedy(torch.from_numpy(ids).to(next(model.parameters()).device), max_new_tokens, use_cache)
+            generated, capped = generate(model, framework, torch.from_numpy(ids).to(next(model.parameters()).device),
+                                         max_new_tokens, use_cache, **settings)
         generated, capped = generated.cpu().numpy(), capped.cpu().numpy()
     else:
         generated, capped = model.greedy(ids, max_new_tokens)
         generated, capped = generated.numpy(), capped.numpy()
-    return {"source": text, "translation": token_text(sp, generated[0]), "truncated": bool(capped[0])}
+    return {"source": text, "translation": token_text(sp, generated[0]), "truncated": bool(capped[0]),
+            **settings, "cache": bool(use_cache and framework == "torch")}
