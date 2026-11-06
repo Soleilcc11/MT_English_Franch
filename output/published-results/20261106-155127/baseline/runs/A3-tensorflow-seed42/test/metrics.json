@@ -1,0 +1,135 @@
+{
+  "count": 8597,
+  "bleu": 35.78041135982944,
+  "chrf2": 60.220906354677915,
+  "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+  "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+  "word_length_ratio": 0.9870150393763004,
+  "empty_fraction": 0.0,
+  "length_cap_fraction": 0.0,
+  "nll": 1.3844481402913529,
+  "ppl": 3.9926219295552126,
+  "target_tokens": 241460,
+  "framework": "tensorflow",
+  "precision": "bf16",
+  "max_new_tokens": 256,
+  "decode": "greedy",
+  "cache": false,
+  "by_year": {
+    "2010": {
+      "count": 1568,
+      "bleu": 31.64401978573108,
+      "chrf2": 57.43039255990199,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 1.005635319454415,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2011": {
+      "count": 1430,
+      "bleu": 39.61718158731884,
+      "chrf2": 63.10052651656377,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9890773686388085,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2012": {
+      "count": 1704,
+      "bleu": 38.999397484618555,
+      "chrf2": 62.59893439156458,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.975853779254755,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2013": {
+      "count": 1379,
+      "bleu": 36.09891285314734,
+      "chrf2": 60.05212069546094,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9806793740265519,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2014": {
+      "count": 1306,
+      "bleu": 33.69127890449517,
+      "chrf2": 57.92576314836607,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9650157063556951,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2015": {
+      "count": 1210,
+      "bleu": 34.19569871549281,
+      "chrf2": 60.19856002938012,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 1.0071204384691057,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    }
+  },
+  "by_length": {
+    "01_<=16": {
+      "count": 3363,
+      "bleu": 38.62388164721887,
+      "chrf2": 60.74926971342922,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9791251016034878,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "02_17-32": {
+      "count": 3274,
+      "bleu": 36.74961126921331,
+      "chrf2": 60.548951348237644,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.988792861157954,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "03_33-64": {
+      "count": 1746,
+      "bleu": 34.271511191794936,
+      "chrf2": 59.784951235293406,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.990273950397147,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "04_65-128": {
+      "count": 213,
+      "bleu": 33.12453101085474,
+      "chrf2": 59.890078145867896,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9832233895268344,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "05_>128": {
+      "count": 1,
+      "bleu": 14.660163423396542,
+      "chrf2": 45.508267304518654,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.6891891891891891,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    }
+  },
+  "checkpoint": "output/host4090-torch27/runs/A3-tensorflow-seed42",
+  "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+  "formal": true
+}

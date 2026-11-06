@@ -1,0 +1,135 @@
+{
+  "count": 8597,
+  "bleu": 35.10151348470364,
+  "chrf2": 59.52069005753772,
+  "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+  "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+  "word_length_ratio": 0.981358811599547,
+  "empty_fraction": 0.0,
+  "length_cap_fraction": 0.00011631964638827499,
+  "nll": 1.4240784612851698,
+  "ppl": 4.154027980737246,
+  "target_tokens": 241460,
+  "framework": "torch",
+  "precision": "bf16",
+  "max_new_tokens": 256,
+  "decode": "greedy",
+  "cache": false,
+  "by_year": {
+    "2010": {
+      "count": 1568,
+      "bleu": 31.044231414359423,
+      "chrf2": 56.81055268395119,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9989590811198852,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2011": {
+      "count": 1430,
+      "bleu": 39.16726337082636,
+      "chrf2": 62.685023378502095,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9823748448489863,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2012": {
+      "count": 1704,
+      "bleu": 38.467704306844695,
+      "chrf2": 61.88413675818335,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9735558226684579,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2013": {
+      "count": 1379,
+      "bleu": 35.277122802857015,
+      "chrf2": 59.56266214315502,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9763776607579916,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "2014": {
+      "count": 1306,
+      "bleu": 32.514109958717675,
+      "chrf2": 56.745447391459244,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9589052885236026,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0007656967840735069
+    },
+    "2015": {
+      "count": 1210,
+      "bleu": 33.95593961023752,
+      "chrf2": 59.344059202908305,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9983135803625802,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    }
+  },
+  "by_length": {
+    "01_<=16": {
+      "count": 3363,
+      "bleu": 38.21569154357859,
+      "chrf2": 60.31509590686457,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.974987068647011,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "02_17-32": {
+      "count": 3274,
+      "bleu": 35.69734594707976,
+      "chrf2": 59.637715282186,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9818894041596402,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "03_33-64": {
+      "count": 1746,
+      "bleu": 33.72115844474345,
+      "chrf2": 59.11195133989996,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9848165558977684,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "04_65-128": {
+      "count": 213,
+      "bleu": 33.05665960866562,
+      "chrf2": 59.592413624999395,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9756494828569102,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    "05_>128": {
+      "count": 1,
+      "bleu": 4.8676977782367725,
+      "chrf2": 29.25822279187196,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 1.2567567567567568,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 1.0
+    }
+  },
+  "checkpoint": "output/host4090-torch27/runs/A1-torch-seed43",
+  "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+  "formal": true
+}

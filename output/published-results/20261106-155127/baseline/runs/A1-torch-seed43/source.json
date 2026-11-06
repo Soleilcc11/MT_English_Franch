@@ -1,0 +1,19 @@
+{
+  "files": {
+    "scripts/enfr/__init__.py": "cb172ebb919108db2785f3ad077816001abc21caaba5b6dde0529ad797029d44",
+    "scripts/enfr/benchmark.py": "ade24a5638ba62ed13dc5654cf9b04de051c1c59851c92c6204f236a5f671b4d",
+    "scripts/enfr/common.py": "4a3244cc1822cf0ea562fe016f38b6a82dfb432b7ea6b69e91fb21e35fde5d85",
+    "scripts/enfr/data.py": "7bd9fa8bc0c95a79f1507b97637aae02accd465b0cae1a82d9bad7c30882fd13",
+    "scripts/enfr/diagnostics.py": "3b8691c49ac8783281017474bacef8046e5f8b6917e6e60a8b5210f9b4d7b2ad",
+    "scripts/enfr/evaluation.py": "5e5a2d2de72a0f465649aa0de685c4326f68f7bf9e0e1a7f48bf311710275c57",
+    "scripts/enfr/parity.py": "ed4b70d1a405d8d571ca892ac2910b6941e7229ebf3a85e83b6fdad55b4442cb",
+    "scripts/enfr/reporting.py": "a74f157555bec8c16bf3cb67039d16f7904c6c673b540a2aa872193d94e3f18d",
+    "scripts/enfr/runtime.py": "245c05a44e1f5e78149b075eddacf805c2c718f35ea5964d631c7437bda00c4a",
+    "scripts/enfr/tf_model.py": "f7503f75e77f343d426c09924686a06629ff7f2b316968a44ce517e39b58e33e",
+    "scripts/enfr/torch_model.py": "675e8adf62407aeb3bb2ec0d13645958ea1667dfa2f7abe5a50904db01bcae6c",
+    "scripts/enfr/training.py": "9e2f04a4cd52d2b482071697b19c19c6e601f88530fb59ac3107ef6e8cfe897e",
+    "scripts/enfr/validation.py": "2fd206c1e67f78e376d2a7981c4189bc6fc7b8d2b3e59d4b43efef47bf18fda0",
+    "scripts/run.py": "8fe4edc60f129454f9df1032d4b8784ec2fe74ab74f07c2f141f84f3de0d0152"
+  },
+  "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0"
+}

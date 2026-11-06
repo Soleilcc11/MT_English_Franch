@@ -1,0 +1,497 @@
+{
+  "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+  "tokenizer_sha256": "e9a1d16ed5d485fdb64540a683dd927501359aa32cf870c2049cfa9336e21b78",
+  "test_protocol": "tst2010-2015 pooled; greedy; BLEU 13a mixed case; chrF2",
+  "runs": [
+    {
+      "run": "A0-torch-seed42",
+      "checkpoint": "output/host4090-torch27/runs/A0-torch-seed42/checkpoints/step-00054030-1d571c96",
+      "weights_sha256": "ca29c99c5015a97aad5327ef47269dc3532a8e01d505750cef139b2d770a5d6f",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A0",
+        "seed": 42
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 27.666929499163036
+    },
+    {
+      "run": "A0-torch-seed43",
+      "checkpoint": "output/host4090-torch27/runs/A0-torch-seed43/checkpoints/step-00054030-f0681342",
+      "weights_sha256": "ae33a79479ded60379f8ae43d5d4effb44938cec8a7f5d29db16528d26e2bdc8",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A0",
+        "seed": 43
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 27.245808452770287
+    },
+    {
+      "run": "A0-torch-seed44",
+      "checkpoint": "output/host4090-torch27/runs/A0-torch-seed44/checkpoints/step-00041423-7e71c130",
+      "weights_sha256": "70d4ca5a1ddf7d83dbd49f1089770e7f783e4ece4e011a8b44f67135a3a181a1",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A0",
+        "seed": 44
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 27.245961988260994
+    },
+    {
+      "run": "A1-torch-seed42",
+      "checkpoint": "output/host4090-torch27/runs/A1-torch-seed42/checkpoints/step-00048627-5c7776ef",
+      "weights_sha256": "af55692256a2533ce611b2265ada18f52c0f5c6545c43affb22441252d075943",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 1,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A1",
+        "seed": 42
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 26.742338565004488
+    },
+    {
+      "run": "A1-torch-seed43",
+      "checkpoint": "output/host4090-torch27/runs/A1-torch-seed43/checkpoints/step-00050428-bae089c0",
+      "weights_sha256": "d82fb3b13d67be25de7e67e6edabd23b620a57f86f0e5ca9bd35cb915f6e8078",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 1,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A1",
+        "seed": 43
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 26.748355441945414
+    },
+    {
+      "run": "A1-torch-seed44",
+      "checkpoint": "output/host4090-torch27/runs/A1-torch-seed44/checkpoints/step-00048627-094559c6",
+      "weights_sha256": "d577b1e6536e6ce98e98a9868b049e493636b1ef4f215aaf9a8bcd8f455f58d2",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 1,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A1",
+        "seed": 44
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 26.99273493427129
+    },
+    {
+      "run": "A2-torch-seed42",
+      "checkpoint": "output/host4090-torch27/runs/A2-torch-seed42/checkpoints/step-00052229-ebb50d27",
+      "weights_sha256": "3d699426bae3a6ca5ea520678e25582b5f6ee1da049488b2e63250f6bb2357d2",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": false
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A2",
+        "seed": 42
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 10.799242398903093
+    },
+    {
+      "run": "A2-torch-seed43",
+      "checkpoint": "output/host4090-torch27/runs/A2-torch-seed43/checkpoints/step-00041423-5682bebd",
+      "weights_sha256": "176d4e2a8d85e6da432c2150c83621cbf1586336f5b36d20d9d2798f7f2032be",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": false
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A2",
+        "seed": 43
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 10.73367114678343
+    },
+    {
+      "run": "A2-torch-seed44",
+      "checkpoint": "output/host4090-torch27/runs/A2-torch-seed44/checkpoints/step-00050428-62cef903",
+      "weights_sha256": "5d3c322a40f4ff9ae34af70734a657fa6afc992f4a3f1686317a66f283835509",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": false
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A2",
+        "seed": 44
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 11.16303163737184
+    },
+    {
+      "run": "A3-tensorflow-seed42",
+      "checkpoint": "output/host4090-torch27/runs/A3-tensorflow-seed42/checkpoints/step-00050428-8fd89192",
+      "weights_sha256": "9629d31500eabd7ba689e0fefa5260eca0fc3ab315608458d3a149d643903501",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A3",
+        "seed": 42
+      },
+      "code_id": "f18a6c350d97e55029379b102b4c3abd1e9d7519bfa1e61dca832ce7fea04ff0",
+      "validation_bleu": 27.55104243060277
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "metric": "SacreBLEU",
+  "direction": "right minus left",
+  "left": "output/host4090-torch27/runs/A0-torch-seed42/test/predictions.jsonl",
+  "right": "output/host4090-torch27/runs/A1-torch-seed42/test/predictions.jsonl",
+  "samples": 8597,
+  "repetitions": 1000,
+  "seed": 42,
+  "delta": -0.9835370828871106,
+  "delta_ci95": [
+    -1.1974676284523393,
+    -0.7719101981952456
+  ],
+  "scope": "Paired sentence resampling; does not measure training-seed uncertainty or TED-document clustering"
+}

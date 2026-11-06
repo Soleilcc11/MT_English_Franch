@@ -1,0 +1,1654 @@
+{
+  "formal": true,
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "packages": {
+      "torch": "2.7.0+cu128",
+      "numpy": "1.26.4",
+      "sentencepiece": "0.2.2",
+      "sacrebleu": "2.6.0"
+    }
+  },
+  "device": "cuda",
+  "precision": "bf16",
+  "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27/runs/A0-torch-seed42",
+  "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+  "warmups": 20,
+  "repeats": 50,
+  "fixed_trajectory": true,
+  "results": [
+    {
+      "backend": "manual",
+      "cache": false,
+      "batch": 1,
+      "source_tokens": 32,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.0,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 68902912,
+      "encoder_ms": {
+        "median": 2.252484206110239,
+        "p95": 2.3141775745898485
+      },
+      "first_decode_ms": {
+        "median": 3.4845564514398575,
+        "p95": 3.5658593755215406
+      },
+      "ttft_ms": {
+        "median": 5.740751512348652,
+        "p95": 5.824670055881143
+      },
+      "remaining_decode_ms": {
+        "median": 93.46232656389475,
+        "p95": 97.13713973760605
+      },
+      "total_ms": {
+        "median": 99.19133549556136,
+        "p95": 102.90516340173781
+      },
+      "tokens_per_second": {
+        "median": 330.0774657889255,
+        "p95": 334.33972272479843
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "batch": 1,
+      "source_tokens": 32,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.0625,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 67788800,
+      "encoder_ms": {
+        "median": 2.3223012685775757,
+        "p95": 2.41185100749135
+      },
+      "first_decode_ms": {
+        "median": 3.4744413569569588,
+        "p95": 3.5663805436342955
+      },
+      "ttft_ms": {
+        "median": 5.801462568342686,
+        "p95": 6.010675430297852
+      },
+      "remaining_decode_ms": {
+        "median": 79.32332623749971,
+        "p95": 80.90639663860202
+      },
+      "total_ms": {
+        "median": 85.11429978534579,
+        "p95": 87.10184614174068
+      },
+      "tokens_per_second": {
+        "median": 386.5054010961762,
+        "p95": 388.90813525972436
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "batch": 1,
+      "source_tokens": 32,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 68902912,
+      "encoder_ms": {
+        "median": 1.8601124174892902,
+        "p95": 1.9363347440958023
+      },
+      "first_decode_ms": {
+        "median": 3.0112192034721375,
+        "p95": 3.108611423522234
+      },
+      "ttft_ms": {
+        "median": 4.875983577221632,
+        "p95": 5.037121335044503
+      },
+      "remaining_decode_ms": {
+        "median": 73.38782446458936,
+        "p95": 75.76281609944999
+      },
+      "total_ms": {
+        "median": 78.2602890394628,
+        "p95": 80.71710094809532
+      },
+      "tokens_per_second": {
+        "median": 418.9275144445189,
+        "p95": 422.36250880546646
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "batch": 1,
+      "source_tokens": 32,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 67788800,
+      "encoder_ms": {
+        "median": 2.340452279895544,
+        "p95": 2.4010701570659876
+      },
+      "first_decode_ms": {
+        "median": 3.6587570793926716,
+        "p95": 3.7214023526757956
+      },
+      "ttft_ms": {
+        "median": 6.004383787512779,
+        "p95": 6.09947070479393
+      },
+      "remaining_decode_ms": {
+        "median": 79.1555535979569,
+        "p95": 83.63893027417362
+      },
+      "total_ms": {
+        "median": 85.1638182066381,
+        "p95": 90.49108936451375
+      },
+      "tokens_per_second": {
+        "median": 386.3008014403201,
+        "p95": 391.6127982501896
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "manual",
+      "cache": false,
+      "batch": 1,
+      "source_tokens": 32,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 80688128,
+      "encoder_ms": {
+        "median": 2.7742492966353893,
+        "p95": 3.32650737836957
+      },
+      "first_decode_ms": {
+        "median": 4.230155609548092,
+        "p95": 5.111564788967371
+      },
+      "ttft_ms": {
+        "median": 6.998684722930193,
+        "p95": 8.448799280449748
+      },
+      "remaining_decode_ms": {
+        "median": 460.1732287555933,
+        "p95": 529.8139987513421
+      },
+      "total_ms": {
+        "median": 467.84236934036016,
+        "p95": 537.5813849270342
+      },
+      "tokens_per_second": {
+        "median": 275.2567224778263,
+        "p95": 279.54524107739024
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "batch": 1,
+      "source_tokens": 32,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.03125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 71647744,
+      "encoder_ms": {
+        "median": 2.850849647074938,
+        "p95": 2.9646243434399366
+      },
+      "first_decode_ms": {
+        "median": 4.198878072202206,
+        "p95": 4.466032842174172
+      },
+      "ttft_ms": {
+        "median": 7.053371984511614,
+        "p95": 7.46847759000957
+      },
+      "remaining_decode_ms": {
+        "median": 392.68803130835295,
+        "p95": 419.81207467615604
+      },
+      "total_ms": {
+        "median": 399.78616079315543,
+        "p95": 427.05817711539567
+      },
+      "tokens_per_second": {
+        "median": 322.4682867938571,
+        "p95": 331.9112497575046
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "batch": 1,
+      "source_tokens": 32,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.03125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 80688128,
+      "encoder_ms": {
+        "median": 2.3341886699199677,
+        "p95": 2.4090632796287537
+      },
+      "first_decode_ms": {
+        "median": 3.7046601064503193,
+        "p95": 3.751154337078333
+      },
+      "ttft_ms": {
+        "median": 6.041814107447863,
+        "p95": 6.1262414790689945
+      },
+      "remaining_decode_ms": {
+        "median": 363.3645800873637,
+        "p95": 368.091540876776
+      },
+      "total_ms": {
+        "median": 369.3384942598641,
+        "p95": 374.1617424879223
+      },
+      "tokens_per_second": {
+        "median": 348.73429698153734,
+        "p95": 352.46721355163777
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "batch": 1,
+      "source_tokens": 32,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0390625,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 71647744,
+      "encoder_ms": {
+        "median": 2.371962182223797,
+        "p95": 2.4482453241944313
+      },
+      "first_decode_ms": {
+        "median": 3.6500548012554646,
+        "p95": 4.5427653007209265
+      },
+      "ttft_ms": {
+        "median": 6.021901499480009,
+        "p95": 6.929952604696151
+      },
+      "remaining_decode_ms": {
+        "median": 326.856954023242,
+        "p95": 360.4520034044981
+      },
+      "total_ms": {
+        "median": 332.93460542336106,
+        "p95": 366.4558150805533
+      },
+      "tokens_per_second": {
+        "median": 387.24819183032344,
+        "p95": 397.9696722321097
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "manual",
+      "cache": false,
+      "batch": 1,
+      "source_tokens": 128,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.0,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 69001728,
+      "encoder_ms": {
+        "median": 2.7559190057218075,
+        "p95": 3.296696161851287
+      },
+      "first_decode_ms": {
+        "median": 4.19444777071476,
+        "p95": 5.329437693580985
+      },
+      "ttft_ms": {
+        "median": 6.95616751909256,
+        "p95": 9.16061992757022
+      },
+      "remaining_decode_ms": {
+        "median": 113.32695744931698,
+        "p95": 124.76970204152167
+      },
+      "total_ms": {
+        "median": 120.37646630778909,
+        "p95": 134.59727130830288
+      },
+      "tokens_per_second": {
+        "median": 272.12363172201594,
+        "p95": 282.7013906760106
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "batch": 1,
+      "source_tokens": 128,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.0625,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 68280832,
+      "encoder_ms": {
+        "median": 2.805924043059349,
+        "p95": 4.665558738633988
+      },
+      "first_decode_ms": {
+        "median": 4.127734340727329,
+        "p95": 9.979643905535339
+      },
+      "ttft_ms": {
+        "median": 6.934214849025011,
+        "p95": 14.441919140517708
+      },
+      "remaining_decode_ms": {
+        "median": 104.11421535536647,
+        "p95": 110.46430352143943
+      },
+      "total_ms": {
+        "median": 111.26306420192122,
+        "p95": 121.5200012549758
+      },
+      "tokens_per_second": {
+        "median": 295.48300700555,
+        "p95": 307.4044073323247
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "batch": 1,
+      "source_tokens": 128,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.0625,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 69001728,
+      "encoder_ms": {
+        "median": 2.34210304915905,
+        "p95": 3.887603478506207
+      },
+      "first_decode_ms": {
+        "median": 3.6742561496794224,
+        "p95": 5.830870755016804
+      },
+      "ttft_ms": {
+        "median": 6.011489313095808,
+        "p95": 9.303230233490467
+      },
+      "remaining_decode_ms": {
+        "median": 96.46475268527865,
+        "p95": 101.69573803432286
+      },
+      "total_ms": {
+        "median": 102.92437253519893,
+        "p95": 108.64763562567532
+      },
+      "tokens_per_second": {
+        "median": 318.6207536923947,
+        "p95": 336.29027933500583
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "batch": 1,
+      "source_tokens": 128,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.046875,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 68280832,
+      "encoder_ms": {
+        "median": 2.278088591992855,
+        "p95": 2.308746101334691
+      },
+      "first_decode_ms": {
+        "median": 3.5860207863152027,
+        "p95": 3.6106583662331104
+      },
+      "ttft_ms": {
+        "median": 5.866908002644777,
+        "p95": 5.911044077947736
+      },
+      "remaining_decode_ms": {
+        "median": 77.28393143042922,
+        "p95": 77.89190816693008
+      },
+      "total_ms": {
+        "median": 83.17317487671971,
+        "p95": 83.75248592346907
+      },
+      "tokens_per_second": {
+        "median": 395.6687844873336,
+        "p95": 397.79522959480664
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "manual",
+      "cache": false,
+      "batch": 1,
+      "source_tokens": 128,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 80786944,
+      "encoder_ms": {
+        "median": 2.731804270297289,
+        "p95": 2.7941752690821886
+      },
+      "first_decode_ms": {
+        "median": 4.172834102064371,
+        "p95": 4.25013261847198
+      },
+      "ttft_ms": {
+        "median": 6.887409370392561,
+        "p95": 7.022328721359372
+      },
+      "remaining_decode_ms": {
+        "median": 445.48367941752076,
+        "p95": 465.4239819385111
+      },
+      "total_ms": {
+        "median": 452.56395637989044,
+        "p95": 472.33265009708697
+      },
+      "tokens_per_second": {
+        "median": 284.6470082999223,
+        "p95": 288.5358354379331
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "batch": 1,
+      "source_tokens": 128,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0625,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 72139776,
+      "encoder_ms": {
+        "median": 2.7827639132738113,
+        "p95": 2.8081306256353855
+      },
+      "first_decode_ms": {
+        "median": 4.107657819986343,
+        "p95": 4.173816414549947
+      },
+      "ttft_ms": {
+        "median": 6.887791212648153,
+        "p95": 6.959098717197776
+      },
+      "remaining_decode_ms": {
+        "median": 379.4571440666914,
+        "p95": 387.7084185834974
+      },
+      "total_ms": {
+        "median": 386.3626825623214,
+        "p95": 394.56778643652797
+      },
+      "tokens_per_second": {
+        "median": 333.70935583971993,
+        "p95": 337.22184101566114
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "batch": 1,
+      "source_tokens": 128,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0625,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 80786944,
+      "encoder_ms": {
+        "median": 2.3202653974294662,
+        "p95": 2.372260531410575
+      },
+      "first_decode_ms": {
+        "median": 3.668177407234907,
+        "p95": 3.777178470045328
+      },
+      "ttft_ms": {
+        "median": 5.980273243039846,
+        "p95": 6.107553234323859
+      },
+      "remaining_decode_ms": {
+        "median": 364.82094833627343,
+        "p95": 373.75654922798276
+      },
+      "total_ms": {
+        "median": 370.80594152212143,
+        "p95": 380.22358301095665
+      },
+      "tokens_per_second": {
+        "median": 347.3751330915181,
+        "p95": 352.26635951737296
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "batch": 1,
+      "source_tokens": 128,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0625,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 72139776,
+      "encoder_ms": {
+        "median": 2.3938678205013275,
+        "p95": 2.55928486585617
+      },
+      "first_decode_ms": {
+        "median": 3.65733215585351,
+        "p95": 3.7967852316796775
+      },
+      "ttft_ms": {
+        "median": 6.060043349862099,
+        "p95": 6.419471884146333
+      },
+      "remaining_decode_ms": {
+        "median": 321.71201100572944,
+        "p95": 330.16358907334507
+      },
+      "total_ms": {
+        "median": 327.7374799363315,
+        "p95": 336.22946236282587
+      },
+      "tokens_per_second": {
+        "median": 393.3939105428469,
+        "p95": 399.4764008429573
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "manual",
+      "cache": false,
+      "batch": 8,
+      "source_tokens": 32,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.0,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 94942208,
+      "encoder_ms": {
+        "median": 2.8303442522883415,
+        "p95": 2.8713745530694723
+      },
+      "first_decode_ms": {
+        "median": 4.368448164314032,
+        "p95": 4.426722880452871
+      },
+      "ttft_ms": {
+        "median": 7.198496721684933,
+        "p95": 7.299151225015521
+      },
+      "remaining_decode_ms": {
+        "median": 118.02967544645071,
+        "p95": 119.92821730673313
+      },
+      "total_ms": {
+        "median": 125.23490516468883,
+        "p95": 127.13096453808248
+      },
+      "tokens_per_second": {
+        "median": 2091.3717898031377,
+        "p95": 2112.464554877775
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "batch": 8,
+      "source_tokens": 32,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 78757888,
+      "encoder_ms": {
+        "median": 2.8389389626681805,
+        "p95": 2.9308369383215904
+      },
+      "first_decode_ms": {
+        "median": 4.304099828004837,
+        "p95": 4.421177972108126
+      },
+      "ttft_ms": {
+        "median": 7.143515162169933,
+        "p95": 7.360952673479915
+      },
+      "remaining_decode_ms": {
+        "median": 101.08931316062808,
+        "p95": 105.27644730173051
+      },
+      "total_ms": {
+        "median": 108.29247441142797,
+        "p95": 112.44951081462204
+      },
+      "tokens_per_second": {
+        "median": 2428.2855654575123,
+        "p95": 2449.2100833306718
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "batch": 8,
+      "source_tokens": 32,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 94942208,
+      "encoder_ms": {
+        "median": 2.2759889252483845,
+        "p95": 2.3429565131664276
+      },
+      "first_decode_ms": {
+        "median": 3.738983068615198,
+        "p95": 3.793301060795784
+      },
+      "ttft_ms": {
+        "median": 6.018792744725943,
+        "p95": 6.095660477876663
+      },
+      "remaining_decode_ms": {
+        "median": 89.6454993635416,
+        "p95": 93.97674556821583
+      },
+      "total_ms": {
+        "median": 95.64878745004535,
+        "p95": 99.96562129817902
+      },
+      "tokens_per_second": {
+        "median": 2740.8933018815005,
+        "p95": 2769.3698547738736
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "batch": 8,
+      "source_tokens": 32,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 78757888,
+      "encoder_ms": {
+        "median": 2.2936202585697174,
+        "p95": 2.5418958626687527
+      },
+      "first_decode_ms": {
+        "median": 3.6670989356935024,
+        "p95": 3.7402025889605284
+      },
+      "ttft_ms": {
+        "median": 5.970497149974108,
+        "p95": 6.2848837580531836
+      },
+      "remaining_decode_ms": {
+        "median": 80.98388742655516,
+        "p95": 84.30694150738418
+      },
+      "total_ms": {
+        "median": 86.98389260098338,
+        "p95": 90.79097975045443
+      },
+      "tokens_per_second": {
+        "median": 3023.5590096373717,
+        "p95": 3040.2571534232407
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "manual",
+      "cache": false,
+      "batch": 8,
+      "source_tokens": 32,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 183756800,
+      "encoder_ms": {
+        "median": 2.8622341342270374,
+        "p95": 4.277320532128215
+      },
+      "first_decode_ms": {
+        "median": 4.358960781246424,
+        "p95": 6.500730151310563
+      },
+      "ttft_ms": {
+        "median": 7.2196051478385925,
+        "p95": 10.701622534543276
+      },
+      "remaining_decode_ms": {
+        "median": 491.2139964289963,
+        "p95": 531.4596160314977
+      },
+      "total_ms": {
+        "median": 498.52208606898785,
+        "p95": 538.561957096681
+      },
+      "tokens_per_second": {
+        "median": 2066.2951866438484,
+        "p95": 2113.248609271819
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "batch": 8,
+      "source_tokens": 32,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 109927424,
+      "encoder_ms": {
+        "median": 2.8922338970005512,
+        "p95": 3.890049830079075
+      },
+      "first_decode_ms": {
+        "median": 4.31153504177928,
+        "p95": 5.555736133828758
+      },
+      "ttft_ms": {
+        "median": 7.208721246570349,
+        "p95": 9.909191448241465
+      },
+      "remaining_decode_ms": {
+        "median": 438.02669271826744,
+        "p95": 467.7920702844858
+      },
+      "total_ms": {
+        "median": 445.2526601962745,
+        "p95": 475.03454564139247
+      },
+      "tokens_per_second": {
+        "median": 2314.8507602241048,
+        "p95": 2450.2628523097146
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "batch": 8,
+      "source_tokens": 32,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 183756800,
+      "encoder_ms": {
+        "median": 2.309896517544985,
+        "p95": 2.369323465973139
+      },
+      "first_decode_ms": {
+        "median": 3.715350292623043,
+        "p95": 4.5499059371650175
+      },
+      "ttft_ms": {
+        "median": 6.021568551659584,
+        "p95": 6.886301795020696
+      },
+      "remaining_decode_ms": {
+        "median": 395.0796900317073,
+        "p95": 403.1158542726189
+      },
+      "total_ms": {
+        "median": 401.12401777878404,
+        "p95": 409.126695478335
+      },
+      "tokens_per_second": {
+        "median": 2567.7222689754626,
+        "p95": 2734.3821029209876
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "batch": 8,
+      "source_tokens": 32,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 109927424,
+      "encoder_ms": {
+        "median": 2.360869199037552,
+        "p95": 2.4007280822843313
+      },
+      "first_decode_ms": {
+        "median": 3.692823927849531,
+        "p95": 3.8410991895943876
+      },
+      "ttft_ms": {
+        "median": 6.048727314919233,
+        "p95": 6.3734568655490875
+      },
+      "remaining_decode_ms": {
+        "median": 334.5695990137756,
+        "p95": 351.22211407870054
+      },
+      "total_ms": {
+        "median": 340.5831204727292,
+        "p95": 357.29116601869464
+      },
+      "tokens_per_second": {
+        "median": 3027.2416076265217,
+        "p95": 3075.0736496186933
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "manual",
+      "cache": false,
+      "batch": 8,
+      "source_tokens": 128,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.0,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 95735296,
+      "encoder_ms": {
+        "median": 2.8847805224359035,
+        "p95": 6.219518370926375
+      },
+      "first_decode_ms": {
+        "median": 4.392951261252165,
+        "p95": 6.580315856263041
+      },
+      "ttft_ms": {
+        "median": 7.275778334587812,
+        "p95": 13.003719365224237
+      },
+      "remaining_decode_ms": {
+        "median": 126.37854553759098,
+        "p95": 134.36377262696624
+      },
+      "total_ms": {
+        "median": 134.82839614152908,
+        "p95": 142.33204098418355
+      },
+      "tokens_per_second": {
+        "median": 1945.263257335601,
+        "p95": 2059.719575232691
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "batch": 8,
+      "source_tokens": 128,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 82205184,
+      "encoder_ms": {
+        "median": 2.926001325249672,
+        "p95": 4.611904779449105
+      },
+      "first_decode_ms": {
+        "median": 4.340141080319881,
+        "p95": 6.834157695993781
+      },
+      "ttft_ms": {
+        "median": 7.264067884534597,
+        "p95": 12.562747020274395
+      },
+      "remaining_decode_ms": {
+        "median": 107.70737612619996,
+        "p95": 140.45481509529054
+      },
+      "total_ms": {
+        "median": 114.9569759145379,
+        "p95": 153.6574076861143
+      },
+      "tokens_per_second": {
+        "median": 2285.0214493852395,
+        "p95": 2448.0180179409062
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "batch": 8,
+      "source_tokens": 128,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 95735296,
+      "encoder_ms": {
+        "median": 2.357113640755415,
+        "p95": 3.023047558963297
+      },
+      "first_decode_ms": {
+        "median": 3.784075379371643,
+        "p95": 3.8721317891031504
+      },
+      "ttft_ms": {
+        "median": 6.155859213322401,
+        "p95": 7.263490138575434
+      },
+      "remaining_decode_ms": {
+        "median": 92.2505077905953,
+        "p95": 101.80373485200107
+      },
+      "total_ms": {
+        "median": 98.75856898725033,
+        "p95": 107.90201392956078
+      },
+      "tokens_per_second": {
+        "median": 2655.0831510375456,
+        "p95": 2733.457458878424
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "batch": 8,
+      "source_tokens": 128,
+      "generated_tokens": 32,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 82205184,
+      "encoder_ms": {
+        "median": 2.3907949216663837,
+        "p95": 3.0384058132767673
+      },
+      "first_decode_ms": {
+        "median": 3.7378077395260334,
+        "p95": 3.9077536202967167
+      },
+      "ttft_ms": {
+        "median": 6.124328821897507,
+        "p95": 6.913296971470117
+      },
+      "remaining_decode_ms": {
+        "median": 83.09675101190805,
+        "p95": 90.31608751975
+      },
+      "total_ms": {
+        "median": 89.9490681476891,
+        "p95": 96.43408260308206
+      },
+      "tokens_per_second": {
+        "median": 2943.5093607189256,
+        "p95": 3006.026338784932
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "manual",
+      "cache": false,
+      "batch": 8,
+      "source_tokens": 128,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 184549888,
+      "encoder_ms": {
+        "median": 2.84674484282732,
+        "p95": 2.898908546194434
+      },
+      "first_decode_ms": {
+        "median": 4.371264949440956,
+        "p95": 4.572062427178025
+      },
+      "ttft_ms": {
+        "median": 7.217863574624062,
+        "p95": 7.419208018109202
+      },
+      "remaining_decode_ms": {
+        "median": 483.35143039003015,
+        "p95": 527.590396720916
+      },
+      "total_ms": {
+        "median": 490.5654052272439,
+        "p95": 534.9981602746993
+      },
+      "tokens_per_second": {
+        "median": 2099.5870382126373,
+        "p95": 2126.611317441072
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "batch": 8,
+      "source_tokens": 128,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 113866240,
+      "encoder_ms": {
+        "median": 2.900421619415283,
+        "p95": 2.959332102909684
+      },
+      "first_decode_ms": {
+        "median": 4.346390720456839,
+        "p95": 4.421606101095676
+      },
+      "ttft_ms": {
+        "median": 7.2495173662900925,
+        "p95": 7.388025475665927
+      },
+      "remaining_decode_ms": {
+        "median": 414.3417994491756,
+        "p95": 457.8338600229472
+      },
+      "total_ms": {
+        "median": 421.6303485445678,
+        "p95": 465.1163874194026
+      },
+      "tokens_per_second": {
+        "median": 2445.4974374602116,
+        "p95": 2482.5752354299693
+      },
+      "sdpa_operators": []
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "batch": 8,
+      "source_tokens": 128,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.0625,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 184549888,
+      "encoder_ms": {
+        "median": 2.3283129557967186,
+        "p95": 2.820118237286806
+      },
+      "first_decode_ms": {
+        "median": 3.729283344000578,
+        "p95": 4.603749373927712
+      },
+      "ttft_ms": {
+        "median": 6.060382351279259,
+        "p95": 7.507638540118933
+      },
+      "remaining_decode_ms": {
+        "median": 391.446340829134,
+        "p95": 460.6192084494978
+      },
+      "total_ms": {
+        "median": 397.4742479622364,
+        "p95": 468.05745027959347
+      },
+      "tokens_per_second": {
+        "median": 2591.327171771126,
+        "p95": 2753.9122886292826
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "batch": 8,
+      "source_tokens": 128,
+      "generated_tokens": 128,
+      "max_abs_last_logits_diff": 0.125,
+      "last_token_agreement": 1.0,
+      "peak_allocated_bytes": 113866240,
+      "encoder_ms": {
+        "median": 2.3918813094496727,
+        "p95": 2.895541861653328
+      },
+      "first_decode_ms": {
+        "median": 3.738601692020893,
+        "p95": 4.5212929137051105
+      },
+      "ttft_ms": {
+        "median": 6.137988995760679,
+        "p95": 7.426675083115697
+      },
+      "remaining_decode_ms": {
+        "median": 339.0372903086245,
+        "p95": 438.00360625609756
+      },
+      "total_ms": {
+        "median": 345.1504451222718,
+        "p95": 445.399969862774
+      },
+      "tokens_per_second": {
+        "median": 2987.6954545684603,
+        "p95": 3041.174603385072
+      },
+      "sdpa_operators": [
+        "aten::_efficient_attention_forward",
+        "aten::_scaled_dot_product_efficient_attention",
+        "aten::scaled_dot_product_attention"
+      ]
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "cuda": "12.8",
+  "natural_generation": [
+    {
+      "backend": "manual",
+      "cache": false,
+      "count": 20,
+      "text_match_fraction": 1.0,
+      "latency_ms_median": 100.62032425776124,
+      "latency_ms_p95": 191.8039984069765,
+      "includes_tokenization": true,
+      "outputs": [
+        {
+          "source": "Last year I showed these two slides so that demonstrate that the arctic ice cap, which for most of the last three million years has been the size of the lower 48 states, has shrunk by 40 percent.",
+          "translation": "L'année dernière, j'ai montré ces deux diapos pour que la glace arctique montre que la plupart des trois derniers millions d'années a été la taille des 48 états, a réduit de 40%.",
+          "truncated": false
+        },
+        {
+          "source": "But this understates the seriousness of this particular problem because it doesn't show the thickness of the ice.",
+          "translation": "Mais cela comprend la série de ce problème particulier parce qu'elle ne montre pas la épaisse de la glace.",
+          "truncated": false
+        },
+        {
+          "source": "The arctic ice cap is, in a sense, the beating heart of the global climate system.",
+          "translation": "La calotte arctique est, dans un sens, le cœur du système climatique mondial.",
+          "truncated": false
+        },
+        {
+          "source": "It expands in winter and contracts in summer.",
+          "translation": "Il expose en hiver et contrats en été.",
+          "truncated": false
+        },
+        {
+          "source": "The next slide I show you will be a rapid fast-forward of what's happened over the last 25 years.",
+          "translation": "La diapositive suivante que je vous montre sera une rapide rapide de ce qui s'est passé ces 25 dernières années.",
+          "truncated": false
+        },
+        {
+          "source": "The permanent ice is marked in red.",
+          "translation": "La glace permanente est marquée en rouge.",
+          "truncated": false
+        },
+        {
+          "source": "As you see, it expands to the dark blue -- that's the annual ice in winter, and it contracts in summer.",
+          "translation": "Comme vous le voyez, il s'étend au bleu sombre -- c'est la glace annuelle en hiver, et il se contrats en été.",
+          "truncated": false
+        },
+        {
+          "source": "The so-called permanent ice, five years old or older, you can see is almost like blood, spilling out of the body here.",
+          "translation": "La glace permanente, cinq ans ou plus âgée, vous pouvez voir est presque comme le sang, en sortant du corps ici.",
+          "truncated": false
+        },
+        {
+          "source": "In 25 years it's gone from this, to this.",
+          "translation": "En 25 ans, ça va de là.",
+          "truncated": false
+        },
+        {
+          "source": "This is a problem because the warming heats up the frozen ground around the Arctic Ocean, where there is a massive amount of frozen carbon which, when it thaws, is turned into methane by microbes.",
+          "translation": "C'est un problème parce que le réchauffement réchauffe le sol gelé autour de l'océan arctique, où il y a une quantité énorme de carbone gelé qui, quand il s'épaisse, est transformé en méthane par des microbes.",
+          "truncated": false
+        },
+        {
+          "source": "Compared to the total amount of global warming pollution in the atmosphere, that amount could double if we cross this tipping point.",
+          "translation": "Comparquée à la quantité totale de pollution du réchauffement climatique dans l'atmosphère, cette quantité pourrait doubler si nous traversons ce point de bascule.",
+          "truncated": false
+        },
+        {
+          "source": "Already in some shallow lakes in Alaska, methane is actively bubbling up out of the water.",
+          "translation": "Déjà dans certains lacs d'ombre à l'Alaska, le méthane est activement en train de se faire en train de s'en sortir de l'eau.",
+          "truncated": false
+        },
+        {
+          "source": "Professor Katey Walter from the University of Alaska went out with another team to another shallow lake last winter.",
+          "translation": "Professeur Katey Walter de l'Université d'Alaska est allé avec une autre équipe à une autre lac de l'hiver dernier.",
+          "truncated": false
+        },
+        {
+          "source": "Video: Whoa! Al Gore: She's okay. The question is whether we will be.",
+          "translation": "Vidéo : Ouah! Al Gore : Elle va bien. La question est de savoir si nous serons.",
+          "truncated": false
+        },
+        {
+          "source": "And one reason is, this enormous heat sink heats up Greenland from the north.",
+          "translation": "Et une raison est que cette énorme chauffe de chaleur réchauffe le Groenland du nord.",
+          "truncated": false
+        },
+        {
+          "source": "This is an annual melting river.",
+          "translation": "C'est une rivière en mélange.",
+          "truncated": false
+        },
+        {
+          "source": "But the volumes are much larger than ever.",
+          "translation": "Mais les volumes sont bien plus grands que jamais.",
+          "truncated": false
+        },
+        {
+          "source": "This is the Kangerlussuaq River in southwest Greenland.",
+          "translation": "Voici le Vert de Kangeraq River au sud-ouest.",
+          "truncated": false
+        },
+        {
+          "source": "If you want to know how sea level rises from land-base ice melting this is where it reaches the sea.",
+          "translation": "Si vous voulez savoir comment le niveau de la mer monte de glace de terre qui fond de la surface est là où il atteint la mer.",
+          "truncated": false
+        },
+        {
+          "source": "These flows are increasing very rapidly.",
+          "translation": "Ces flux augmentent très rapidement.",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "backend": "manual",
+      "cache": true,
+      "count": 20,
+      "text_match_fraction": 1.0,
+      "latency_ms_median": 82.67641672864556,
+      "latency_ms_p95": 180.66968191415071,
+      "includes_tokenization": true,
+      "outputs": [
+        {
+          "source": "Last year I showed these two slides so that demonstrate that the arctic ice cap, which for most of the last three million years has been the size of the lower 48 states, has shrunk by 40 percent.",
+          "translation": "L'année dernière, j'ai montré ces deux diapos pour que la glace arctique montre que la plupart des trois derniers millions d'années a été la taille des 48 états, a réduit de 40%.",
+          "truncated": false
+        },
+        {
+          "source": "But this understates the seriousness of this particular problem because it doesn't show the thickness of the ice.",
+          "translation": "Mais cela comprend la série de ce problème particulier parce qu'elle ne montre pas la épaisse de la glace.",
+          "truncated": false
+        },
+        {
+          "source": "The arctic ice cap is, in a sense, the beating heart of the global climate system.",
+          "translation": "La calotte arctique est, dans un sens, le cœur du système climatique mondial.",
+          "truncated": false
+        },
+        {
+          "source": "It expands in winter and contracts in summer.",
+          "translation": "Il expose en hiver et contrats en été.",
+          "truncated": false
+        },
+        {
+          "source": "The next slide I show you will be a rapid fast-forward of what's happened over the last 25 years.",
+          "translation": "La diapositive suivante que je vous montre sera une rapide rapide de ce qui s'est passé ces 25 dernières années.",
+          "truncated": false
+        },
+        {
+          "source": "The permanent ice is marked in red.",
+          "translation": "La glace permanente est marquée en rouge.",
+          "truncated": false
+        },
+        {
+          "source": "As you see, it expands to the dark blue -- that's the annual ice in winter, and it contracts in summer.",
+          "translation": "Comme vous le voyez, il s'étend au bleu sombre -- c'est la glace annuelle en hiver, et il se contrats en été.",
+          "truncated": false
+        },
+        {
+          "source": "The so-called permanent ice, five years old or older, you can see is almost like blood, spilling out of the body here.",
+          "translation": "La glace permanente, cinq ans ou plus âgée, vous pouvez voir est presque comme le sang, en sortant du corps ici.",
+          "truncated": false
+        },
+        {
+          "source": "In 25 years it's gone from this, to this.",
+          "translation": "En 25 ans, ça va de là.",
+          "truncated": false
+        },
+        {
+          "source": "This is a problem because the warming heats up the frozen ground around the Arctic Ocean, where there is a massive amount of frozen carbon which, when it thaws, is turned into methane by microbes.",
+          "translation": "C'est un problème parce que le réchauffement réchauffe le sol gelé autour de l'océan arctique, où il y a une quantité énorme de carbone gelé qui, quand il s'épaisse, est transformé en méthane par des microbes.",
+          "truncated": false
+        },
+        {
+          "source": "Compared to the total amount of global warming pollution in the atmosphere, that amount could double if we cross this tipping point.",
+          "translation": "Comparquée à la quantité totale de pollution du réchauffement climatique dans l'atmosphère, cette quantité pourrait doubler si nous traversons ce point de bascule.",
+          "truncated": false
+        },
+        {
+          "source": "Already in some shallow lakes in Alaska, methane is actively bubbling up out of the water.",
+          "translation": "Déjà dans certains lacs d'ombre à l'Alaska, le méthane est activement en train de se faire en train de s'en sortir de l'eau.",
+          "truncated": false
+        },
+        {
+          "source": "Professor Katey Walter from the University of Alaska went out with another team to another shallow lake last winter.",
+          "translation": "Professeur Katey Walter de l'Université d'Alaska est allé avec une autre équipe à une autre lac de l'hiver dernier.",
+          "truncated": false
+        },
+        {
+          "source": "Video: Whoa! Al Gore: She's okay. The question is whether we will be.",
+          "translation": "Vidéo : Ouah! Al Gore : Elle va bien. La question est de savoir si nous serons.",
+          "truncated": false
+        },
+        {
+          "source": "And one reason is, this enormous heat sink heats up Greenland from the north.",
+          "translation": "Et une raison est que cette énorme chauffe de chaleur réchauffe le Groenland du nord.",
+          "truncated": false
+        },
+        {
+          "source": "This is an annual melting river.",
+          "translation": "C'est une rivière en mélange.",
+          "truncated": false
+        },
+        {
+          "source": "But the volumes are much larger than ever.",
+          "translation": "Mais les volumes sont bien plus grands que jamais.",
+          "truncated": false
+        },
+        {
+          "source": "This is the Kangerlussuaq River in southwest Greenland.",
+          "translation": "Voici le Vert de Kangeraq River au sud-ouest.",
+          "truncated": false
+        },
+        {
+          "source": "If you want to know how sea level rises from land-base ice melting this is where it reaches the sea.",
+          "translation": "Si vous voulez savoir comment le niveau de la mer monte de glace de terre qui fond de la surface est là où il atteint la mer.",
+          "truncated": false
+        },
+        {
+          "source": "These flows are increasing very rapidly.",
+          "translation": "Ces flux augmentent très rapidement.",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": false,
+      "count": 20,
+      "text_match_fraction": 0.95,
+      "latency_ms_median": 84.38686514273286,
+      "latency_ms_p95": 154.13086893968287,
+      "includes_tokenization": true,
+      "outputs": [
+        {
+          "source": "Last year I showed these two slides so that demonstrate that the arctic ice cap, which for most of the last three million years has been the size of the lower 48 states, has shrunk by 40 percent.",
+          "translation": "L'année dernière, j'ai montré ces deux diapos pour que la glace arctique montre que la plupart des trois derniers millions d'années a été la taille des 48 états, a réduit de 40%.",
+          "truncated": false
+        },
+        {
+          "source": "But this understates the seriousness of this particular problem because it doesn't show the thickness of the ice.",
+          "translation": "Mais cela comprend la série de ce problème particulier parce qu'elle ne montre pas la épaisse de la glace.",
+          "truncated": false
+        },
+        {
+          "source": "The arctic ice cap is, in a sense, the beating heart of the global climate system.",
+          "translation": "La calotte arctique est, dans un sens, le cœur de la planète.",
+          "truncated": false
+        },
+        {
+          "source": "It expands in winter and contracts in summer.",
+          "translation": "Il expose en hiver et contrats en été.",
+          "truncated": false
+        },
+        {
+          "source": "The next slide I show you will be a rapid fast-forward of what's happened over the last 25 years.",
+          "translation": "La diapositive suivante que je vous montre sera une rapide rapide de ce qui s'est passé ces 25 dernières années.",
+          "truncated": false
+        },
+        {
+          "source": "The permanent ice is marked in red.",
+          "translation": "La glace permanente est marquée en rouge.",
+          "truncated": false
+        },
+        {
+          "source": "As you see, it expands to the dark blue -- that's the annual ice in winter, and it contracts in summer.",
+          "translation": "Comme vous le voyez, il s'étend au bleu sombre -- c'est la glace annuelle en hiver, et il se contrats en été.",
+          "truncated": false
+        },
+        {
+          "source": "The so-called permanent ice, five years old or older, you can see is almost like blood, spilling out of the body here.",
+          "translation": "La glace permanente, cinq ans ou plus âgée, vous pouvez voir est presque comme le sang, en sortant du corps ici.",
+          "truncated": false
+        },
+        {
+          "source": "In 25 years it's gone from this, to this.",
+          "translation": "En 25 ans, ça va de là.",
+          "truncated": false
+        },
+        {
+          "source": "This is a problem because the warming heats up the frozen ground around the Arctic Ocean, where there is a massive amount of frozen carbon which, when it thaws, is turned into methane by microbes.",
+          "translation": "C'est un problème parce que le réchauffement réchauffe le sol gelé autour de l'océan arctique, où il y a une quantité énorme de carbone gelé qui, quand il s'épaisse, est transformé en méthane par des microbes.",
+          "truncated": false
+        },
+        {
+          "source": "Compared to the total amount of global warming pollution in the atmosphere, that amount could double if we cross this tipping point.",
+          "translation": "Comparquée à la quantité totale de pollution du réchauffement climatique dans l'atmosphère, cette quantité pourrait doubler si nous traversons ce point de bascule.",
+          "truncated": false
+        },
+        {
+          "source": "Already in some shallow lakes in Alaska, methane is actively bubbling up out of the water.",
+          "translation": "Déjà dans certains lacs d'ombre à l'Alaska, le méthane est activement en train de se faire en train de s'en sortir de l'eau.",
+          "truncated": false
+        },
+        {
+          "source": "Professor Katey Walter from the University of Alaska went out with another team to another shallow lake last winter.",
+          "translation": "Professeur Katey Walter de l'Université d'Alaska est allé avec une autre équipe à une autre lac de l'hiver dernier.",
+          "truncated": false
+        },
+        {
+          "source": "Video: Whoa! Al Gore: She's okay. The question is whether we will be.",
+          "translation": "Vidéo : Ouah! Al Gore : Elle va bien. La question est de savoir si nous serons.",
+          "truncated": false
+        },
+        {
+          "source": "And one reason is, this enormous heat sink heats up Greenland from the north.",
+          "translation": "Et une raison est que cette énorme chauffe de chaleur réchauffe le Groenland du nord.",
+          "truncated": false
+        },
+        {
+          "source": "This is an annual melting river.",
+          "translation": "C'est une rivière en mélange.",
+          "truncated": false
+        },
+        {
+          "source": "But the volumes are much larger than ever.",
+          "translation": "Mais les volumes sont bien plus grands que jamais.",
+          "truncated": false
+        },
+        {
+          "source": "This is the Kangerlussuaq River in southwest Greenland.",
+          "translation": "Voici le Vert de Kangeraq River au sud-ouest.",
+          "truncated": false
+        },
+        {
+          "source": "If you want to know how sea level rises from land-base ice melting this is where it reaches the sea.",
+          "translation": "Si vous voulez savoir comment le niveau de la mer monte de glace de terre qui fond de la surface est là où il atteint la mer.",
+          "truncated": false
+        },
+        {
+          "source": "These flows are increasing very rapidly.",
+          "translation": "Ces flux augmentent très rapidement.",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "backend": "sdpa",
+      "cache": true,
+      "count": 20,
+      "text_match_fraction": 1.0,
+      "latency_ms_median": 76.49696664884686,
+      "latency_ms_p95": 154.44826581515372,
+      "includes_tokenization": true,
+      "outputs": [
+        {
+          "source": "Last year I showed these two slides so that demonstrate that the arctic ice cap, which for most of the last three million years has been the size of the lower 48 states, has shrunk by 40 percent.",
+          "translation": "L'année dernière, j'ai montré ces deux diapos pour que la glace arctique montre que la plupart des trois derniers millions d'années a été la taille des 48 états, a réduit de 40%.",
+          "truncated": false
+        },
+        {
+          "source": "But this understates the seriousness of this particular problem because it doesn't show the thickness of the ice.",
+          "translation": "Mais cela comprend la série de ce problème particulier parce qu'elle ne montre pas la épaisse de la glace.",
+          "truncated": false
+        },
+        {
+          "source": "The arctic ice cap is, in a sense, the beating heart of the global climate system.",
+          "translation": "La calotte arctique est, dans un sens, le cœur du système climatique mondial.",
+          "truncated": false
+        },
+        {
+          "source": "It expands in winter and contracts in summer.",
+          "translation": "Il expose en hiver et contrats en été.",
+          "truncated": false
+        },
+        {
+          "source": "The next slide I show you will be a rapid fast-forward of what's happened over the last 25 years.",
+          "translation": "La diapositive suivante que je vous montre sera une rapide rapide de ce qui s'est passé ces 25 dernières années.",
+          "truncated": false
+        },
+        {
+          "source": "The permanent ice is marked in red.",
+          "translation": "La glace permanente est marquée en rouge.",
+          "truncated": false
+        },
+        {
+          "source": "As you see, it expands to the dark blue -- that's the annual ice in winter, and it contracts in summer.",
+          "translation": "Comme vous le voyez, il s'étend au bleu sombre -- c'est la glace annuelle en hiver, et il se contrats en été.",
+          "truncated": false
+        },
+        {
+          "source": "The so-called permanent ice, five years old or older, you can see is almost like blood, spilling out of the body here.",
+          "translation": "La glace permanente, cinq ans ou plus âgée, vous pouvez voir est presque comme le sang, en sortant du corps ici.",
+          "truncated": false
+        },
+        {
+          "source": "In 25 years it's gone from this, to this.",
+          "translation": "En 25 ans, ça va de là.",
+          "truncated": false
+        },
+        {
+          "source": "This is a problem because the warming heats up the frozen ground around the Arctic Ocean, where there is a massive amount of frozen carbon which, when it thaws, is turned into methane by microbes.",
+          "translation": "C'est un problème parce que le réchauffement réchauffe le sol gelé autour de l'océan arctique, où il y a une quantité énorme de carbone gelé qui, quand il s'épaisse, est transformé en méthane par des microbes.",
+          "truncated": false
+        },
+        {
+          "source": "Compared to the total amount of global warming pollution in the atmosphere, that amount could double if we cross this tipping point.",
+          "translation": "Comparquée à la quantité totale de pollution du réchauffement climatique dans l'atmosphère, cette quantité pourrait doubler si nous traversons ce point de bascule.",
+          "truncated": false
+        },
+        {
+          "source": "Already in some shallow lakes in Alaska, methane is actively bubbling up out of the water.",
+          "translation": "Déjà dans certains lacs d'ombre à l'Alaska, le méthane est activement en train de se faire en train de s'en sortir de l'eau.",
+          "truncated": false
+        },
+        {
+          "source": "Professor Katey Walter from the University of Alaska went out with another team to another shallow lake last winter.",
+          "translation": "Professeur Katey Walter de l'Université d'Alaska est allé avec une autre équipe à une autre lac de l'hiver dernier.",
+          "truncated": false
+        },
+        {
+          "source": "Video: Whoa! Al Gore: She's okay. The question is whether we will be.",
+          "translation": "Vidéo : Ouah! Al Gore : Elle va bien. La question est de savoir si nous serons.",
+          "truncated": false
+        },
+        {
+          "source": "And one reason is, this enormous heat sink heats up Greenland from the north.",
+          "translation": "Et une raison est que cette énorme chauffe de chaleur réchauffe le Groenland du nord.",
+          "truncated": false
+        },
+        {
+          "source": "This is an annual melting river.",
+          "translation": "C'est une rivière en mélange.",
+          "truncated": false
+        },
+        {
+          "source": "But the volumes are much larger than ever.",
+          "translation": "Mais les volumes sont bien plus grands que jamais.",
+          "truncated": false
+        },
+        {
+          "source": "This is the Kangerlussuaq River in southwest Greenland.",
+          "translation": "Voici le Vert de Kangeraq River au sud-ouest.",
+          "truncated": false
+        },
+        {
+          "source": "If you want to know how sea level rises from land-base ice melting this is where it reaches the sea.",
+          "translation": "Si vous voulez savoir comment le niveau de la mer monte de glace de terre qui fond de la surface est là où il atteint la mer.",
+          "truncated": false
+        },
+        {
+          "source": "These flows are increasing very rapidly.",
+          "translation": "Ces flux augmentent très rapidement.",
+          "truncated": false
+        }
+      ]
+    }
+  ]
+}

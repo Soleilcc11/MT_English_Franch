@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "count": 100,
+  "shortages": {
+    "05_>128": 19
+  },
+  "realized_bucket_counts": {
+    "01_<=16": 25,
+    "02_17-32": 25,
+    "03_33-64": 25,
+    "04_65-128": 24,
+    "05_>128": 1
+  },
+  "note": "No fabricated human labels; complete the review fields after inspecting references and hypotheses."
+}

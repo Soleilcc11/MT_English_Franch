@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "training_complete": true,
+  "formal_training_complete": true,
+  "completed_updates": 54030,
+  "total_updates": 54030,
+  "epochs": 30,
+  "parameter_count": 9429824,
+  "best_validation_bleu": 27.666929499163036,
+  "training_seconds": 13727.5398962982,
+  "peak_memory_bytes": 1236787200,
+  "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+  "framework": "torch"
+}

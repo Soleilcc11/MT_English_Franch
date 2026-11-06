@@ -1,0 +1,1905 @@
+{
+  "formal": true,
+  "experiments": [
+    {
+      "run": "A0-torch-seed42",
+      "variant": "A0",
+      "seed": 42,
+      "rdrop_alpha": 0,
+      "parameter_count": 9429824,
+      "training_seconds": 13727.5398962982,
+      "peak_memory_bytes": 1236787200,
+      "bleu": 35.922888542522706,
+      "chrf2": 60.38197876114349,
+      "nll": 1.377365183729546,
+      "ppl": 3.9644422772971675,
+      "word_length_ratio": 0.9886019437932941,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    {
+      "run": "A0-torch-seed43",
+      "variant": "A0",
+      "seed": 43,
+      "rdrop_alpha": 0,
+      "parameter_count": 9429824,
+      "training_seconds": 13722.557220302522,
+      "peak_memory_bytes": 1236401152,
+      "bleu": 36.030334926888315,
+      "chrf2": 60.437734897832755,
+      "nll": 1.376901710674242,
+      "ppl": 3.9626052908520757,
+      "word_length_ratio": 0.9910316854110148,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    {
+      "run": "A0-torch-seed44",
+      "variant": "A0",
+      "seed": 44,
+      "rdrop_alpha": 0,
+      "parameter_count": 9429824,
+      "training_seconds": 13681.066075634211,
+      "peak_memory_bytes": 1236662272,
+      "bleu": 35.44519246401662,
+      "chrf2": 59.88848072638536,
+      "nll": 1.4020915090914325,
+      "ppl": 4.063690330183936,
+      "word_length_ratio": 0.9836502752390234,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    {
+      "run": "A4-torch-seed42",
+      "variant": "A4",
+      "seed": 42,
+      "rdrop_alpha": 0,
+      "parameter_count": 9446720,
+      "training_seconds": 7209.289437497035,
+      "peak_memory_bytes": 1410426368,
+      "bleu": 36.224755047483946,
+      "chrf2": 60.53552290667078,
+      "nll": 1.3747343806356283,
+      "ppl": 3.954026317465584,
+      "word_length_ratio": 0.9815300129059447,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    {
+      "run": "A4-torch-seed43",
+      "variant": "A4",
+      "seed": 43,
+      "rdrop_alpha": 0,
+      "parameter_count": 9446720,
+      "training_seconds": 7187.710482660681,
+      "peak_memory_bytes": 1410351104,
+      "bleu": 35.98225584405465,
+      "chrf2": 60.261080360356644,
+      "nll": 1.3810635470261798,
+      "ppl": 3.9791313711669796,
+      "word_length_ratio": 0.9798048305107067,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.00023263929277654997
+    },
+    {
+      "run": "A4-torch-seed44",
+      "variant": "A4",
+      "seed": 44,
+      "rdrop_alpha": 0,
+      "parameter_count": 9446720,
+      "training_seconds": 7483.763009164482,
+      "peak_memory_bytes": 1410628608,
+      "bleu": 36.33609770293607,
+      "chrf2": 60.56208934729715,
+      "nll": 1.3617791507570547,
+      "ppl": 3.903131387177527,
+      "word_length_ratio": 0.980535728395712,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    {
+      "run": "A5-alpha1-torch-seed42",
+      "variant": "A5",
+      "seed": 42,
+      "rdrop_alpha": 1.0,
+      "parameter_count": 9429824,
+      "training_seconds": 12214.372547324747,
+      "peak_memory_bytes": 3067732480,
+      "bleu": 36.02724068170878,
+      "chrf2": 60.33291562875465,
+      "nll": 1.3854321491725203,
+      "ppl": 3.9965526386021777,
+      "word_length_ratio": 0.9957594753338426,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    {
+      "run": "A5-alpha1-torch-seed43",
+      "variant": "A5",
+      "seed": 43,
+      "rdrop_alpha": 1.0,
+      "parameter_count": 9429824,
+      "training_seconds": 11547.847980738617,
+      "peak_memory_bytes": 3067106304,
+      "bleu": 36.24088241294717,
+      "chrf2": 60.429125445602736,
+      "nll": 1.3881019425532362,
+      "ppl": 4.007236864373773,
+      "word_length_ratio": 0.9951207627676667,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    },
+    {
+      "run": "A5-alpha1-torch-seed44",
+      "variant": "A5",
+      "seed": 44,
+      "rdrop_alpha": 1.0,
+      "parameter_count": 9429824,
+      "training_seconds": 11323.472394502722,
+      "peak_memory_bytes": 3067859456,
+      "bleu": 36.14940346408448,
+      "chrf2": 60.36303732447985,
+      "nll": 1.3876146385330634,
+      "ppl": 4.0052845974523725,
+      "word_length_ratio": 0.9924078805278268,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0
+    }
+  ],
+  "aggregate": {
+    "A0": {
+      "bleu": {
+        "mean": 35.79947197780922,
+        "std": 0.3114830040277441
+      },
+      "chrf2": {
+        "mean": 60.236064795120534,
+        "std": 0.30230481359631456
+      },
+      "nll": {
+        "mean": 1.3854528011650735,
+        "std": 0.014411407041377328
+      },
+      "ppl": {
+        "mean": 3.9969126327777267,
+        "std": 0.057838475800770915
+      }
+    },
+    "A4": {
+      "bleu": {
+        "mean": 36.181036198158225,
+        "std": 0.1809268322110884
+      },
+      "chrf2": {
+        "mean": 60.452897538108196,
+        "std": 0.16664878098058603
+      },
+      "nll": {
+        "mean": 1.3725256928062877,
+        "std": 0.009830092131397862
+      },
+      "ppl": {
+        "mean": 3.945429691936697,
+        "std": 0.038722420759324874
+      }
+    },
+    "A5": {
+      "bleu": {
+        "mean": 36.13917551958014,
+        "std": 0.10718747813164513
+      },
+      "chrf2": {
+        "mean": 60.37502613294574,
+        "std": 0.04921260875842298
+      },
+      "nll": {
+        "mean": 1.3870495767529398,
+        "std": 0.0014217666072340175
+      },
+      "ppl": {
+        "mean": 4.003024700142775,
+        "std": 0.005689334053477
+      }
+    }
+  },
+  "a5_selection": {
+    "alpha": 1.0,
+    "seed42_run": "A5-alpha1-torch-seed42",
+    "candidates": [
+      {
+        "run": "A5-alpha1-torch-seed42",
+        "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha1-torch-seed42/checkpoints/step-00052229-7d776be4",
+        "config": {
+          "model": {
+            "vocab_size": 8000,
+            "d_model": 256,
+            "heads": 4,
+            "d_ff": 1024,
+            "encoder_layers": 4,
+            "decoder_layers": 4,
+            "dropout": 0.1,
+            "norm_eps": 1e-05,
+            "encoder_positions": true
+          },
+          "training": {
+            "epochs": 30,
+            "effective_batch": 128,
+            "micro_batch": 32,
+            "lr": 0.0003,
+            "min_lr": 3e-05,
+            "warmup_steps": 1000,
+            "betas": [
+              0.9,
+              0.98
+            ],
+            "eps": 1e-09,
+            "weight_decay": 0.01,
+            "clip_norm": 1.0,
+            "label_smoothing": 0.1,
+            "precision": "bf16",
+            "checkpoint_every": 250,
+            "log_every": 50,
+            "rdrop_alpha": 1.0
+          },
+          "evaluation": {
+            "batch_size": 16,
+            "max_new_tokens": 256
+          },
+          "data": {
+            "max_train_tokens": 128,
+            "bucket_window": 2048
+          },
+          "variant": "A5",
+          "seed": 42
+        },
+        "weights_sha256": "df7eca4fe4e1f115f7a7530005f21b483de4264de21b3c0f8b26e5821a428e62",
+        "metadata_sha256": "dacc2454e60d389330d19159bfb80edb4de6ce6b21e1a15f7566588fa41b194b",
+        "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+        "parameter_count": 9429824,
+        "validation_bleu": 27.345333441861744,
+        "validation_nll": 1.688546243213038,
+        "status": {
+          "status": "complete",
+          "training_complete": true,
+          "formal_training_complete": true,
+          "completed_updates": 54030,
+          "total_updates": 54030,
+          "epochs": 30,
+          "parameter_count": 9429824,
+          "best_validation_bleu": 27.345333441861744,
+          "training_seconds": 12214.372547324747,
+          "peak_memory_bytes": 3067732480,
+          "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+          "framework": "torch"
+        },
+        "alpha": 1.0
+      },
+      {
+        "run": "A5-alpha3-torch-seed42",
+        "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha3-torch-seed42/checkpoints/step-00054030-c4708b3c",
+        "config": {
+          "model": {
+            "vocab_size": 8000,
+            "d_model": 256,
+            "heads": 4,
+            "d_ff": 1024,
+            "encoder_layers": 4,
+            "decoder_layers": 4,
+            "dropout": 0.1,
+            "norm_eps": 1e-05,
+            "encoder_positions": true
+          },
+          "training": {
+            "epochs": 30,
+            "effective_batch": 128,
+            "micro_batch": 32,
+            "lr": 0.0003,
+            "min_lr": 3e-05,
+            "warmup_steps": 1000,
+            "betas": [
+              0.9,
+              0.98
+            ],
+            "eps": 1e-09,
+            "weight_decay": 0.01,
+            "clip_norm": 1.0,
+            "label_smoothing": 0.1,
+            "precision": "bf16",
+            "checkpoint_every": 250,
+            "log_every": 50,
+            "rdrop_alpha": 3.0
+          },
+          "evaluation": {
+            "batch_size": 16,
+            "max_new_tokens": 256
+          },
+          "data": {
+            "max_train_tokens": 128,
+            "bucket_window": 2048
+          },
+          "variant": "A5",
+          "seed": 42
+        },
+        "weights_sha256": "56070f96e991c0f36269931091d78191c048c86629d97933e4c37a4573970182",
+        "metadata_sha256": "bc62190dfbf60d9da80e3f50dc8a7503d37bb314c30fb52d9f53d0bbfa60eed6",
+        "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+        "parameter_count": 9429824,
+        "validation_bleu": 25.960196833716708,
+        "validation_nll": 1.7931512614365117,
+        "status": {
+          "status": "complete",
+          "training_complete": true,
+          "formal_training_complete": true,
+          "completed_updates": 54030,
+          "total_updates": 54030,
+          "epochs": 30,
+          "parameter_count": 9429824,
+          "best_validation_bleu": 25.960196833716708,
+          "training_seconds": 11575.549315780401,
+          "peak_memory_bytes": 3067732480,
+          "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+          "framework": "torch"
+        },
+        "alpha": 3.0
+      },
+      {
+        "run": "A5-alpha5-torch-seed42",
+        "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha5-torch-seed42/checkpoints/step-00050428-19cd0876",
+        "config": {
+          "model": {
+            "vocab_size": 8000,
+            "d_model": 256,
+            "heads": 4,
+            "d_ff": 1024,
+            "encoder_layers": 4,
+            "decoder_layers": 4,
+            "dropout": 0.1,
+            "norm_eps": 1e-05,
+            "encoder_positions": true
+          },
+          "training": {
+            "epochs": 30,
+            "effective_batch": 128,
+            "micro_batch": 32,
+            "lr": 0.0003,
+            "min_lr": 3e-05,
+            "warmup_steps": 1000,
+            "betas": [
+              0.9,
+              0.98
+            ],
+            "eps": 1e-09,
+            "weight_decay": 0.01,
+            "clip_norm": 1.0,
+            "label_smoothing": 0.1,
+            "precision": "bf16",
+            "checkpoint_every": 250,
+            "log_every": 50,
+            "rdrop_alpha": 5.0
+          },
+          "evaluation": {
+            "batch_size": 16,
+            "max_new_tokens": 256
+          },
+          "data": {
+            "max_train_tokens": 128,
+            "bucket_window": 2048
+          },
+          "variant": "A5",
+          "seed": 42
+        },
+        "weights_sha256": "e21969413c433ea0b669a719980bf63b35c0985bedbf28e6307a9eeb34fef727",
+        "metadata_sha256": "5b5b138863df018fe24308c622971d6c277c51633b6b64fc6beb8b6f9bf0da0c",
+        "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+        "parameter_count": 9429824,
+        "validation_bleu": 24.496212788702962,
+        "validation_nll": 1.9069882422591813,
+        "status": {
+          "status": "complete",
+          "training_complete": true,
+          "formal_training_complete": true,
+          "completed_updates": 54030,
+          "total_updates": 54030,
+          "epochs": 30,
+          "parameter_count": 9429824,
+          "best_validation_bleu": 24.496212788702962,
+          "training_seconds": 11156.089057621546,
+          "peak_memory_bytes": 3067732480,
+          "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+          "framework": "torch"
+        },
+        "alpha": 5.0
+      }
+    ],
+    "rule": "validation BLEU desc, NLL asc, alpha asc",
+    "uses_test": false
+  },
+  "a5_candidates": [
+    {
+      "run": "A5-alpha1-torch-seed42",
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha1-torch-seed42/checkpoints/step-00052229-7d776be4",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50,
+          "rdrop_alpha": 1.0
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A5",
+        "seed": 42
+      },
+      "weights_sha256": "df7eca4fe4e1f115f7a7530005f21b483de4264de21b3c0f8b26e5821a428e62",
+      "metadata_sha256": "dacc2454e60d389330d19159bfb80edb4de6ce6b21e1a15f7566588fa41b194b",
+      "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+      "parameter_count": 9429824,
+      "validation_bleu": 27.345333441861744,
+      "validation_nll": 1.688546243213038,
+      "status": {
+        "status": "complete",
+        "training_complete": true,
+        "formal_training_complete": true,
+        "completed_updates": 54030,
+        "total_updates": 54030,
+        "epochs": 30,
+        "parameter_count": 9429824,
+        "best_validation_bleu": 27.345333441861744,
+        "training_seconds": 12214.372547324747,
+        "peak_memory_bytes": 3067732480,
+        "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+        "framework": "torch"
+      },
+      "alpha": 1.0
+    },
+    {
+      "run": "A5-alpha3-torch-seed42",
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha3-torch-seed42/checkpoints/step-00054030-c4708b3c",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50,
+          "rdrop_alpha": 3.0
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A5",
+        "seed": 42
+      },
+      "weights_sha256": "56070f96e991c0f36269931091d78191c048c86629d97933e4c37a4573970182",
+      "metadata_sha256": "bc62190dfbf60d9da80e3f50dc8a7503d37bb314c30fb52d9f53d0bbfa60eed6",
+      "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+      "parameter_count": 9429824,
+      "validation_bleu": 25.960196833716708,
+      "validation_nll": 1.7931512614365117,
+      "status": {
+        "status": "complete",
+        "training_complete": true,
+        "formal_training_complete": true,
+        "completed_updates": 54030,
+        "total_updates": 54030,
+        "epochs": 30,
+        "parameter_count": 9429824,
+        "best_validation_bleu": 25.960196833716708,
+        "training_seconds": 11575.549315780401,
+        "peak_memory_bytes": 3067732480,
+        "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+        "framework": "torch"
+      },
+      "alpha": 3.0
+    },
+    {
+      "run": "A5-alpha5-torch-seed42",
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha5-torch-seed42/checkpoints/step-00050428-19cd0876",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50,
+          "rdrop_alpha": 5.0
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A5",
+        "seed": 42
+      },
+      "weights_sha256": "e21969413c433ea0b669a719980bf63b35c0985bedbf28e6307a9eeb34fef727",
+      "metadata_sha256": "5b5b138863df018fe24308c622971d6c277c51633b6b64fc6beb8b6f9bf0da0c",
+      "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+      "parameter_count": 9429824,
+      "validation_bleu": 24.496212788702962,
+      "validation_nll": 1.9069882422591813,
+      "status": {
+        "status": "complete",
+        "training_complete": true,
+        "formal_training_complete": true,
+        "completed_updates": 54030,
+        "total_updates": 54030,
+        "epochs": 30,
+        "parameter_count": 9429824,
+        "best_validation_bleu": 24.496212788702962,
+        "training_seconds": 11156.089057621546,
+        "peak_memory_bytes": 3067732480,
+        "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+        "framework": "torch"
+      },
+      "alpha": 5.0
+    }
+  ],
+  "test_metrics": {
+    "A0-torch-seed42": {
+      "count": 8597,
+      "bleu": 35.922888542522706,
+      "chrf2": 60.38197876114349,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9886019437932941,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0,
+      "nll": 1.377365183729546,
+      "ppl": 3.9644422772971675,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 31.713212984581432,
+          "chrf2": 57.685681524867306,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0048815506101938,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 39.76554472366787,
+          "chrf2": 63.25828981580647,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9916011584609019,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 39.33695510618197,
+          "chrf2": 62.91687154951734,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9816870536661246,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 36.174563555258246,
+          "chrf2": 60.08352557286295,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9814210487280279,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 33.69313680073693,
+          "chrf2": 58.053150350595025,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9647575196867335,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 34.39457548179077,
+          "chrf2": 60.23165668427969,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.008151028247529,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 38.95592372564592,
+          "chrf2": 61.046593573521555,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9799748762284786,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.74611817425596,
+          "chrf2": 60.59145199385557,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9898116919617763,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 34.57395837930387,
+          "chrf2": 60.07116493580919,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9938942021937646,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 32.84910050953494,
+          "chrf2": 59.736208002551635,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.979640035833537,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 14.106135638599483,
+          "chrf2": 47.4605993680621,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.7297297297297297,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27/runs/A0-torch-seed42/checkpoints/step-00054030-1d571c96",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "ca29c99c5015a97aad5327ef47269dc3532a8e01d505750cef139b2d770a5d6f",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    },
+    "A0-torch-seed43": {
+      "count": 8597,
+      "bleu": 36.030334926888315,
+      "chrf2": 60.437734897832755,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9910316854110148,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0,
+      "nll": 1.376901710674242,
+      "ppl": 3.9626052908520757,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 32.076089019089444,
+          "chrf2": 57.699580793222125,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0076094759511844,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 40.03156912818096,
+          "chrf2": 63.54152390311152,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9962763756723211,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 39.100280887922814,
+          "chrf2": 62.66324468578998,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9826062363006435,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 36.462904525558365,
+          "chrf2": 60.40738750825119,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9840539939182674,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 33.56185337135038,
+          "chrf2": 57.97066252774676,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9677696974912862,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 34.42635354905366,
+          "chrf2": 60.29975781654953,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0087600131165972,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 38.88449569362283,
+          "chrf2": 61.192079223173366,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9828197738860563,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.57714045636573,
+          "chrf2": 60.51940637391048,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9912169758291175,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 34.88941979580324,
+          "chrf2": 60.152625072456246,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.995983501738081,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 33.61052187650257,
+          "chrf2": 60.091876275872366,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9875397019301246,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 13.542995696726756,
+          "chrf2": 43.26652421937322,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.7162162162162162,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27/runs/A0-torch-seed43/checkpoints/step-00054030-f0681342",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "ae33a79479ded60379f8ae43d5d4effb44938cec8a7f5d29db16528d26e2bdc8",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    },
+    "A0-torch-seed44": {
+      "count": 8597,
+      "bleu": 35.44519246401662,
+      "chrf2": 59.88848072638536,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9836502752390234,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0,
+      "nll": 1.4020915090914325,
+      "ppl": 4.063690330183936,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 31.56196749453832,
+          "chrf2": 57.13855573346239,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9991385498923188,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 39.179373464659975,
+          "chrf2": 62.866729670332454,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9897807199007034,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 38.928822893370025,
+          "chrf2": 62.37551316507999,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9758184260765043,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 35.61742260500875,
+          "chrf2": 59.690134705975225,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9765630794333605,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 33.135799867213485,
+          "chrf2": 57.515552840600215,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.960282284091398,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 33.89340801107833,
+          "chrf2": 59.6753408826308,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0012648147280647,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 38.56618221967182,
+          "chrf2": 60.673147137885906,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9780905933643685,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.16440048984007,
+          "chrf2": 60.14250269821131,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9873348791455874,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 34.181531279496326,
+          "chrf2": 59.54221258301825,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9858431944669585,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 32.25565898005102,
+          "chrf2": 58.97373225700985,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9705187718869615,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 9.340651635211966,
+          "chrf2": 42.98152429153212,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.7162162162162162,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27/runs/A0-torch-seed44/checkpoints/step-00041423-7e71c130",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "70d4ca5a1ddf7d83dbd49f1089770e7f783e4ece4e011a8b44f67135a3a181a1",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    },
+    "A4-torch-seed42": {
+      "count": 8597,
+      "bleu": 36.224755047483946,
+      "chrf2": 60.53552290667078,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9815300129059447,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0,
+      "nll": 1.3747343806356283,
+      "ppl": 3.954026317465584,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 32.1007192540019,
+          "chrf2": 57.72246366666077,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9986001435750179,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 40.282150740099304,
+          "chrf2": 63.655840919835974,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9839056681836988,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 39.30006849086724,
+          "chrf2": 62.871476751577745,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9721770487166796,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 36.29262286972449,
+          "chrf2": 60.37402622595353,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9752280649707038,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 34.34345995245296,
+          "chrf2": 58.20129465501726,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9608847196523086,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 34.9235678123329,
+          "chrf2": 60.357798044869625,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9993910151309318,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 38.896500772301664,
+          "chrf2": 61.08314728599581,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.976391044114387,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.995494348805934,
+          "chrf2": 60.81261227537382,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9847175379426644,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 34.9230451211311,
+          "chrf2": 60.15600852057194,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9838079285315466,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 33.74465819973344,
+          "chrf2": 60.0610670855691,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9681570160436518,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 25.54757481385008,
+          "chrf2": 56.15377147055594,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.918918918918919,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A4-torch-seed42/checkpoints/step-00041423-b8efef61",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "ef9b5ac82da1bdb570cd6f09c09d3c660e7509e85fabb06d2f4f7e14367ff560",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    },
+    "A4-torch-seed43": {
+      "count": 8597,
+      "bleu": 35.98225584405465,
+      "chrf2": 60.261080360356644,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9798048305107067,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.00023263929277654997,
+      "nll": 1.3810635470261798,
+      "ppl": 3.9791313711669796,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 32.00084683362648,
+          "chrf2": 57.53571587599657,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9968772433596554,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 39.732525662783516,
+          "chrf2": 63.21209368137992,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9783202316921804,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 39.10994071555541,
+          "chrf2": 62.60127602661644,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9712578660821608,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 36.3642109843254,
+          "chrf2": 60.20098400841955,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9812727137877327,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0007251631617113851
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 33.85618491700095,
+          "chrf2": 58.000563040532946,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9560652351650243,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0007656967840735069
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 34.67429098367758,
+          "chrf2": 59.95099631009083,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9945191361783857,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 39.02173684298741,
+          "chrf2": 61.165478399928496,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9759846301633045,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.625836527690595,
+          "chrf2": 60.566035199233404,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9828379707700956,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 34.72609100752704,
+          "chrf2": 59.8015441754891,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9795572846310405,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 33.22299063696772,
+          "chrf2": 59.40422134614368,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9748350842902517,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.004694835680751174
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 10.327306734207815,
+          "chrf2": 37.82819899533189,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.054054054054054,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 1.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A4-torch-seed43/checkpoints/step-00039622-9c61899a",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "ad9bb71aaeac34872c8fb08be2ecb90921886d468e3bfba5894f201c76309bc9",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    },
+    "A4-torch-seed44": {
+      "count": 8597,
+      "bleu": 36.33609770293607,
+      "chrf2": 60.56208934729715,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.980535728395712,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0,
+      "nll": 1.3617791507570547,
+      "ppl": 3.903131387177527,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 32.188500913260775,
+          "chrf2": 57.72850900659326,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9966618808327351,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 39.986815133255405,
+          "chrf2": 63.32071450590043,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9825403392635499,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 39.368751328774906,
+          "chrf2": 62.83871172297629,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9711871597256594,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 36.91120013475423,
+          "chrf2": 60.634174194548486,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9770080842542461,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 34.117888859699924,
+          "chrf2": 58.282470221965355,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9580016351822368,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 35.282423479792996,
+          "chrf2": 60.54332101521847,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9985946503021502,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 39.263545274850486,
+          "chrf2": 61.30670688608242,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.977462499076332,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.903009942915745,
+          "chrf2": 60.74889104444308,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9838216694772344,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 35.123037624311145,
+          "chrf2": 60.216492487476856,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9822049314673728,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 33.93514213592281,
+          "chrf2": 60.02920408919423,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9662024594836713,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 12.214853328798426,
+          "chrf2": 41.384619868959014,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.7027027027027027,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A4-torch-seed44/checkpoints/step-00050428-345afee1",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "43a50fddbdf40f8f7a0e8802c396e0dd8cfe1f1c04a38047304534bc32901e91",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    },
+    "A5-alpha1-torch-seed42": {
+      "count": 8597,
+      "bleu": 36.02724068170878,
+      "chrf2": 60.33291562875465,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9957594753338426,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0,
+      "nll": 1.3854321491725203,
+      "ppl": 3.9965526386021777,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 31.972898426149435,
+          "chrf2": 57.62719761661445,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0126346015793253,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 39.93310382997592,
+          "chrf2": 63.41441740897824,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9968556061232934,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 39.384589161340465,
+          "chrf2": 62.73885533705633,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9890051615640246,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 36.176090766773804,
+          "chrf2": 60.09844259112289,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9887636282726396,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 33.733564452420865,
+          "chrf2": 57.75311472401371,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9717285597486983,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 34.17369473602425,
+          "chrf2": 60.32399304577773,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0164425914648427,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 38.560380790420425,
+          "chrf2": 60.73535229862747,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9883248355870834,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.73217304382124,
+          "chrf2": 60.51455020101423,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9945896571107363,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 34.73642715667492,
+          "chrf2": 60.01111155098903,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0021613443561896,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 34.15669771258888,
+          "chrf2": 60.396833028449706,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9902272172000978,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 16.927993329359264,
+          "chrf2": 46.976661675605506,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.7297297297297297,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha1-torch-seed42/checkpoints/step-00052229-7d776be4",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "df7eca4fe4e1f115f7a7530005f21b483de4264de21b3c0f8b26e5821a428e62",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    },
+    "A5-alpha1-torch-seed43": {
+      "count": 8597,
+      "bleu": 36.24088241294717,
+      "chrf2": 60.429125445602736,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9951207627676667,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0,
+      "nll": 1.3881019425532362,
+      "ppl": 4.007236864373773,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 32.16715237332349,
+          "chrf2": 57.745368535761045,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0129576453697056,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 39.918293814835884,
+          "chrf2": 63.33733986432316,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9942490690939181,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 39.47288369103373,
+          "chrf2": 62.81164292686514,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9868486176907304,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 36.652766442934116,
+          "chrf2": 60.28366617387875,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.988874879477861,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 33.83824886917746,
+          "chrf2": 57.91185940376048,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.972761306424545,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 34.658851242731146,
+          "chrf2": 60.43599077556057,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.016020986555488,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 39.221472170447456,
+          "chrf2": 61.18851036789374,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9849257370871204,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.756029410373436,
+          "chrf2": 60.50122328372113,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9956084879145587,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 34.97487594672417,
+          "chrf2": 60.11673997164012,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0002521568415554,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 34.28336421910725,
+          "chrf2": 60.246074680438255,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9938920107500611,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 15.118400037897445,
+          "chrf2": 42.82994551239557,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.7027027027027027,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha1-torch-seed43/checkpoints/step-00050428-c8a9e034",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "bba97ab8409163369d477f0a3c1ca0b0ef728a887b7b115d7f2b43deb0f20b30",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    },
+    "A5-alpha1-torch-seed44": {
+      "count": 8597,
+      "bleu": 36.14940346408448,
+      "chrf2": 60.36303732447985,
+      "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+      "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+      "word_length_ratio": 0.9924078805278268,
+      "empty_fraction": 0.0,
+      "length_cap_fraction": 0.0,
+      "nll": 1.3876146385330634,
+      "ppl": 4.0052845974523725,
+      "target_tokens": 241460,
+      "framework": "torch",
+      "precision": "bf16",
+      "max_new_tokens": 256,
+      "decode": "greedy",
+      "beam_size": 1,
+      "length_penalty": 0.0,
+      "batch_size": 16,
+      "cache": false,
+      "by_year": {
+        "2010": {
+          "count": 1568,
+          "bleu": 32.03364736823415,
+          "chrf2": 57.68275268082393,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0101579325197416,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2011": {
+          "count": 1430,
+          "bleu": 40.236885461173706,
+          "chrf2": 63.41870967008393,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.992594124948283,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2012": {
+          "count": 1704,
+          "bleu": 39.68506992180545,
+          "chrf2": 62.73171881580735,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9848334865304391,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2013": {
+          "count": 1379,
+          "bleu": 36.5562699143561,
+          "chrf2": 60.33891084882198,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9844248312690054,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2014": {
+          "count": 1306,
+          "bleu": 33.41540149031599,
+          "chrf2": 57.56454597934268,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9674684797108309,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "2015": {
+          "count": 1210,
+          "bleu": 34.09035147747001,
+          "chrf2": 60.36843815303402,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 1.0163020564950578,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "by_length": {
+        "01_<=16": {
+          "count": 3363,
+          "bleu": 39.04559196221882,
+          "chrf2": 61.162764957672465,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9843715362447351,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "02_17-32": {
+          "count": 3274,
+          "bleu": 36.590352589574316,
+          "chrf2": 60.389508338652085,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9924290331646992,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "03_33-64": {
+          "count": 1746,
+          "bleu": 35.07125010501476,
+          "chrf2": 60.124707542416274,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9985771149655085,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "04_65-128": {
+          "count": 213,
+          "bleu": 33.84847376004685,
+          "chrf2": 59.97704692085091,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.9829790699568369,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        },
+        "05_>128": {
+          "count": 1,
+          "bleu": 10.051559092883512,
+          "chrf2": 40.44880919089088,
+          "bleu_signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.6.0",
+          "chrf_signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:0|space:no|version:2.6.0",
+          "word_length_ratio": 0.8513513513513513,
+          "empty_fraction": 0.0,
+          "length_cap_fraction": 0.0
+        }
+      },
+      "formal": true,
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha1-torch-seed44/checkpoints/step-00052229-deff99ac",
+      "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+      "weights_sha256": "a684f6677394a441f1326ed63b5c98d0c7accbe1fd762bc29bcde568ad0e7a41",
+      "evaluation_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+    }
+  },
+  "historical_a0": {
+    "A0-torch-seed42": {
+      "available": true,
+      "count": 8597,
+      "changed_texts": 0
+    },
+    "A0-torch-seed43": {
+      "available": true,
+      "count": 8597,
+      "changed_texts": 0
+    },
+    "A0-torch-seed44": {
+      "available": true,
+      "count": 8597,
+      "changed_texts": 0
+    }
+  },
+  "new_training_runs": 8,
+  "a5_total_training_runs": 5,
+  "a5_candidate_training_seconds": 34946.010920726694
+}

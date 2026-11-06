@@ -1,0 +1,21 @@
+{
+  "files": {
+    "scripts/enfr/__init__.py": "cb172ebb919108db2785f3ad077816001abc21caaba5b6dde0529ad797029d44",
+    "scripts/enfr/benchmark.py": "ade24a5638ba62ed13dc5654cf9b04de051c1c59851c92c6204f236a5f671b4d",
+    "scripts/enfr/common.py": "2772f0fd8089d261439f840441e66263859754c8d8ac332d2778b1a282340625",
+    "scripts/enfr/data.py": "7bd9fa8bc0c95a79f1507b97637aae02accd465b0cae1a82d9bad7c30882fd13",
+    "scripts/enfr/decode_comparison.py": "04ef91c739b106f5790ea51ae97dec20f48f2fd2344b27d31594c4bf1b042897",
+    "scripts/enfr/diagnostics.py": "3b8691c49ac8783281017474bacef8046e5f8b6917e6e60a8b5210f9b4d7b2ad",
+    "scripts/enfr/evaluation.py": "c3566724cc9032331bd69e4405f82856a73dc9049972b4a8cc48418bffe1ae5b",
+    "scripts/enfr/extensions.py": "95c495d9c41108f17ce6e3ca31535ca64ecd9e2807700e05c9bb90b07d051fb2",
+    "scripts/enfr/parity.py": "ed4b70d1a405d8d571ca892ac2910b6941e7229ebf3a85e83b6fdad55b4442cb",
+    "scripts/enfr/reporting.py": "0ef626811d0bc1c1b9cd37f849bb1bd4a92b9550585f3eac3963dbd2e6ebe7df",
+    "scripts/enfr/runtime.py": "245c05a44e1f5e78149b075eddacf805c2c718f35ea5964d631c7437bda00c4a",
+    "scripts/enfr/tf_model.py": "da4c9ccc9b5f1d0126a751b354c7044574e6ed6a2363c97ab02830c8379a01f7",
+    "scripts/enfr/torch_model.py": "0afa0139f06c17a03984daf9caa6b063cbb7832a81f6856db9cadde039ae7a14",
+    "scripts/enfr/training.py": "762748f467947f1c83a3de0190cfcebcdebbe2029eb29e4512b7a9a904c4127e",
+    "scripts/enfr/validation.py": "2fd206c1e67f78e376d2a7981c4189bc6fc7b8d2b3e59d4b43efef47bf18fda0",
+    "scripts/run.py": "f2ba2f07b1fadec0421f173657cde09a699a1ecc2e36417e8b8ca27304eb7671"
+  },
+  "code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53"
+}

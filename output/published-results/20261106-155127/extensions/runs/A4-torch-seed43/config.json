@@ -1,0 +1,44 @@
+{
+  "model": {
+    "vocab_size": 8000,
+    "d_model": 256,
+    "heads": 4,
+    "d_ff": 1024,
+    "encoder_layers": 4,
+    "decoder_layers": 4,
+    "dropout": 0.1,
+    "norm_eps": 1e-05,
+    "encoder_positions": false,
+    "encoder_relative_positions": true,
+    "relative_max_distance": 16
+  },
+  "training": {
+    "epochs": 30,
+    "effective_batch": 128,
+    "micro_batch": 32,
+    "lr": 0.0003,
+    "min_lr": 3e-05,
+    "warmup_steps": 1000,
+    "betas": [
+      0.9,
+      0.98
+    ],
+    "eps": 1e-09,
+    "weight_decay": 0.01,
+    "clip_norm": 1.0,
+    "label_smoothing": 0.1,
+    "precision": "bf16",
+    "checkpoint_every": 250,
+    "log_every": 50
+  },
+  "evaluation": {
+    "batch_size": 16,
+    "max_new_tokens": 256
+  },
+  "data": {
+    "max_train_tokens": 128,
+    "bucket_window": 2048
+  },
+  "variant": "A4",
+  "seed": 43
+}

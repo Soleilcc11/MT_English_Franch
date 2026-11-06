@@ -1,0 +1,212 @@
+{
+  "alpha": 1.0,
+  "seed42_run": "A5-alpha1-torch-seed42",
+  "candidates": [
+    {
+      "run": "A5-alpha1-torch-seed42",
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha1-torch-seed42/checkpoints/step-00052229-7d776be4",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50,
+          "rdrop_alpha": 1.0
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A5",
+        "seed": 42
+      },
+      "weights_sha256": "df7eca4fe4e1f115f7a7530005f21b483de4264de21b3c0f8b26e5821a428e62",
+      "metadata_sha256": "dacc2454e60d389330d19159bfb80edb4de6ce6b21e1a15f7566588fa41b194b",
+      "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+      "parameter_count": 9429824,
+      "validation_bleu": 27.345333441861744,
+      "validation_nll": 1.688546243213038,
+      "status": {
+        "status": "complete",
+        "training_complete": true,
+        "formal_training_complete": true,
+        "completed_updates": 54030,
+        "total_updates": 54030,
+        "epochs": 30,
+        "parameter_count": 9429824,
+        "best_validation_bleu": 27.345333441861744,
+        "training_seconds": 12214.372547324747,
+        "peak_memory_bytes": 3067732480,
+        "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+        "framework": "torch"
+      },
+      "alpha": 1.0
+    },
+    {
+      "run": "A5-alpha3-torch-seed42",
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha3-torch-seed42/checkpoints/step-00054030-c4708b3c",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50,
+          "rdrop_alpha": 3.0
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A5",
+        "seed": 42
+      },
+      "weights_sha256": "56070f96e991c0f36269931091d78191c048c86629d97933e4c37a4573970182",
+      "metadata_sha256": "bc62190dfbf60d9da80e3f50dc8a7503d37bb314c30fb52d9f53d0bbfa60eed6",
+      "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+      "parameter_count": 9429824,
+      "validation_bleu": 25.960196833716708,
+      "validation_nll": 1.7931512614365117,
+      "status": {
+        "status": "complete",
+        "training_complete": true,
+        "formal_training_complete": true,
+        "completed_updates": 54030,
+        "total_updates": 54030,
+        "epochs": 30,
+        "parameter_count": 9429824,
+        "best_validation_bleu": 25.960196833716708,
+        "training_seconds": 11575.549315780401,
+        "peak_memory_bytes": 3067732480,
+        "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+        "framework": "torch"
+      },
+      "alpha": 3.0
+    },
+    {
+      "run": "A5-alpha5-torch-seed42",
+      "checkpoint": "/root/autodl-tmp/MT_English_Franch/output/host4090-torch27-extensions/runs/A5-alpha5-torch-seed42/checkpoints/step-00050428-19cd0876",
+      "config": {
+        "model": {
+          "vocab_size": 8000,
+          "d_model": 256,
+          "heads": 4,
+          "d_ff": 1024,
+          "encoder_layers": 4,
+          "decoder_layers": 4,
+          "dropout": 0.1,
+          "norm_eps": 1e-05,
+          "encoder_positions": true
+        },
+        "training": {
+          "epochs": 30,
+          "effective_batch": 128,
+          "micro_batch": 32,
+          "lr": 0.0003,
+          "min_lr": 3e-05,
+          "warmup_steps": 1000,
+          "betas": [
+            0.9,
+            0.98
+          ],
+          "eps": 1e-09,
+          "weight_decay": 0.01,
+          "clip_norm": 1.0,
+          "label_smoothing": 0.1,
+          "precision": "bf16",
+          "checkpoint_every": 250,
+          "log_every": 50,
+          "rdrop_alpha": 5.0
+        },
+        "evaluation": {
+          "batch_size": 16,
+          "max_new_tokens": 256
+        },
+        "data": {
+          "max_train_tokens": 128,
+          "bucket_window": 2048
+        },
+        "variant": "A5",
+        "seed": 42
+      },
+      "weights_sha256": "e21969413c433ea0b669a719980bf63b35c0985bedbf28e6307a9eeb34fef727",
+      "metadata_sha256": "5b5b138863df018fe24308c622971d6c277c51633b6b64fc6beb8b6f9bf0da0c",
+      "training_code_id": "7eaa923a980af668b0c9b4d110dee5c3ea954c49d12fa02a31b19699bdbb4f53",
+      "parameter_count": 9429824,
+      "validation_bleu": 24.496212788702962,
+      "validation_nll": 1.9069882422591813,
+      "status": {
+        "status": "complete",
+        "training_complete": true,
+        "formal_training_complete": true,
+        "completed_updates": 54030,
+        "total_updates": 54030,
+        "epochs": 30,
+        "parameter_count": 9429824,
+        "best_validation_bleu": 24.496212788702962,
+        "training_seconds": 11156.089057621546,
+        "peak_memory_bytes": 3067732480,
+        "data_id": "a18f026381cbeb7d512e2c3ef63135e8060ef031d9f824ab29f06c8a366f7ede",
+        "framework": "torch"
+      },
+      "alpha": 5.0
+    }
+  ],
+  "rule": "validation BLEU desc, NLL asc, alpha asc",
+  "uses_test": false
+}
